@@ -1,0 +1,150 @@
+unit Manage_StatusU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels,
+  cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  Vcl.StdCtrls, cxButtons, Vcl.ExtCtrls, Data.DB, MemDS, DBAccess, MyAccess;
+
+type
+  TMange_Status = class(TForm)
+    Panel1: TPanel;
+    cxButton1: TcxButton;
+    cxButton2: TcxButton;
+    cxButton3: TcxButton;
+    cxButton4: TcxButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    MyQuery1: TMyQuery;
+    MyQuery2: TMyQuery;
+    procedure cxButton4Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+    procedure cxButton3Click(Sender: TObject);
+    procedure cxButton2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Mange_Status: TMange_Status;
+
+implementation
+
+{$R *.dfm}
+
+uses ManageU, datamodual, Comment_DataU, MainU;
+
+procedure TMange_Status.cxButton1Click(Sender: TObject);
+var
+datetime : TDateTime;
+begin
+      if Label2.Caption = 'OPD' then
+          Begin
+             MyQuery2.Close;
+             MyQuery2.Open;
+             datetime := MyQuery2.FieldByName('now()').AsDateTime ;
+
+             MyQuery1.Close;
+             MyQuery1.SQL.Text := 'update eclaim_opd set state = 1,con_time = '+'"'+ formatdatetime('yyyy-mm-dd-hh-mm-ss',datetime)+'"'+' where id = '+'"'+Label1.Caption+'"';
+             MyQuery1.Execute;
+             Mange.MyQuery2.Refresh;
+             close;
+          End;
+      if Label2.Caption = 'IPD' then
+          Begin
+             MyQuery2.Close;
+             MyQuery2.Open;
+             datetime := MyQuery2.FieldByName('now()').AsDateTime ;
+             MyQuery1.Close;
+             MyQuery1.SQL.Text := 'update eclaim_ipd set state = 1,con_time = '+'"'+ formatdatetime('yyyy-mm-dd-hh-mm-ss',datetime)+'"'+' where id = '+'"'+Label1.Caption+'"';
+             MyQuery1.Execute;
+             Mange.MyQuery4.Refresh;
+             close;
+          End;
+
+
+end;
+
+procedure TMange_Status.cxButton2Click(Sender: TObject);
+var
+datetime : TDateTime;
+begin
+      if Label2.Caption = 'OPD' then
+          Begin
+             MyQuery2.Close;
+             MyQuery2.Open;
+             datetime := MyQuery2.FieldByName('now()').AsDateTime ;
+
+             MyQuery1.Close;
+             MyQuery1.SQL.Text := 'update eclaim_opd set state2 = 2,state = 2,con_time = '+'"'+ formatdatetime('yyyy-mm-dd-hh-mm-ss',datetime)+'"'+' where id = '+'"'+Label1.Caption+'"';
+             MyQuery1.Execute;
+             Mange.MyQuery2.Refresh;
+             close;
+          End;
+if Label2.Caption = 'IPD' then
+          Begin
+             MyQuery2.Close;
+             MyQuery2.Open;
+             datetime := MyQuery2.FieldByName('now()').AsDateTime ;
+             MyQuery1.Close;
+             MyQuery1.SQL.Text := 'update eclaim_ipd set state2 = 2,state = 2,con_time = '+'"'+ formatdatetime('yyyy-mm-dd-hh-mm-ss',datetime)+'"'+' where id = '+'"'+Label1.Caption+'"';
+             MyQuery1.Execute;
+             Mange.MyQuery4.Refresh;
+             close;
+          End;
+
+
+end;
+
+procedure TMange_Status.cxButton3Click(Sender: TObject);
+begin
+if   IsFormOpen('Comment_Data') = False  then
+     Application.CreateForm(TComment_Data,Comment_Data);
+     Comment_Data.ShowModal;
+end;
+
+procedure TMange_Status.cxButton4Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TMange_Status.FormShow(Sender: TObject);
+begin
+   label2.Caption := Mange.Label1.Caption;
+
+   if label2.Caption = 'OPD' then
+        begin
+            label1.Caption := Mange.cxDBLabel1.Caption;
+        end;
+
+   if label2.Caption = 'IPD' then
+        begin
+             label1.Caption := Mange.cxDBLabel3.Caption;
+        end;
+
+
+
+
+
+
+
+end;
+
+end.

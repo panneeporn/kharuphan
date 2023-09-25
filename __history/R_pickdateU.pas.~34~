@@ -1,0 +1,273 @@
+unit R_pickdateU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels,
+  cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  Vcl.StdCtrls, cxButtons, Vcl.Mask, JvExMask, JvToolEdit, JvMaskEdit,
+  JvCheckedMaskEdit, JvDatePickerEdit, dxGDIPlusClasses, Vcl.ExtCtrls, frxClass,
+  frxDBSet;
+
+type
+  TR_pickdate = class(TForm)
+    Panel1: TPanel;
+    Image1: TImage;
+    Label1: TLabel;
+    JvDatePickerEdit1: TJvDatePickerEdit;
+    JvDatePickerEdit2: TJvDatePickerEdit;
+    cxButton1: TcxButton;
+    Label2: TLabel;
+    Label3: TLabel;
+    ComboBox1: TComboBox;
+    ds1: TLabel;
+    ds2: TLabel;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+    procedure cxButton1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure JvDatePickerEdit1Change(Sender: TObject);
+    procedure JvDatePickerEdit2Change(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  R_pickdate: TR_pickdate;
+
+
+implementation
+
+{$R *.dfm}
+
+uses I_ReportU, I_ReportServiceU, ThaiDate, Change_DrugU;
+
+procedure TR_pickdate.ComboBox1Change(Sender: TObject);
+begin
+
+     if combobox1.Text = '60' then
+         begin
+              JvDatePickerEdit1.Date  :=  strtodate('01/10/2016');
+              JvDatePickerEdit2.Date  :=  strtodate('30/09/2017');
+
+         end;
+     if combobox1.Text = '59' then
+         begin
+              JvDatePickerEdit1.Date  :=  strtodate('01/10/2015');
+              JvDatePickerEdit2.Date  :=  strtodate('30/09/2016');
+         end;
+      if combobox1.Text = '58' then
+         begin
+              JvDatePickerEdit1.Date  :=  strtodate('01/10/2014');
+              JvDatePickerEdit2.Date  :=  strtodate('30/09/2015');
+         end;
+      if combobox1.Text = '57' then
+         begin
+              JvDatePickerEdit1.Date  :=  strtodate('01/10/2013');
+              JvDatePickerEdit2.Date  :=  strtodate('30/09/2014');
+         end;
+      if combobox1.Text = '56' then
+         begin
+              JvDatePickerEdit1.Date  :=  strtodate('01/10/2012');
+              JvDatePickerEdit2.Date  :=  strtodate('30/09/2013');
+         end;
+      if combobox1.Text = '55' then
+         begin
+              JvDatePickerEdit1.Date  :=  strtodate('01/10/2011');
+              JvDatePickerEdit2.Date  :=  strtodate('30/09/2012');
+         end;
+      if combobox1.Text = '54' then
+         begin
+              JvDatePickerEdit1.Date  :=  strtodate('01/10/2010');
+              JvDatePickerEdit2.Date  :=  strtodate('30/09/2011');
+         end;
+
+      ds1.Caption := FormatThaiDate('dd mmmm eeee',JvDatePickerEdit1.Date);
+      ds2.Caption := FormatThaiDate('dd mmmm eeee',JvDatePickerEdit2.Date);
+end;
+
+procedure TR_pickdate.cxButton1Click(Sender: TObject);
+begin
+
+
+
+
+     if I_Report.cxdblabel1.Caption = '1' then
+        begin
+             I_Report.process.close;
+             I_Report.process.sql.Text := ' SELECT op.an,op.hn,pa.cid,op.vstdate,CONCAT(pa.pname,pa.fname,'+'" '+' "'+',pa.lname)as fullname,pa.informaddr,pa.hometel,drug.name,drug.strength,drug.dosageform FROM opitemrece op '+
+                                          ' LEFT JOIN patient pa ON op.hn = pa.hn '+
+                                          ' LEFT JOIN drugitems drug ON op.icode = drug.icode '+
+                                          //'limit 1000';
+                                          ' where drug.icode = '+'"'+Change_Drug.label2.caption+'"'+' and op.vstdate BETWEEN '+'"'+formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit1.Date)+'"'+' and '+'"'+ formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit2.Date)+'"'+' order by op.vstdate ';
+
+
+             //ShowMessage(I_Report.process.sql.Text);
+             I_Report.process.open;
+              ds1 := I_Report.frxReport_Phamacy1.FindObject('ds1') as TfrxMemoView;
+              ds2 := I_Report.frxReport_Phamacy1.FindObject('ds2') as TfrxMemoView;
+             // ds1.Text := StringReplace(ds1.caption, '%my_str%', 'new string', [rfReplaceAll]);
+             // ds2.Text := StringReplace(ds2.caption, '%my_str%', 'new string', [rfReplaceAll]);
+             I_Report.frxReport_Phamacy1.PrepareReport;
+             I_Report.frxReport_Phamacy1.Print;
+        end;
+
+     if I_Report.cxdblabel1.Caption = '3' then
+        begin
+             I_Report.process3.close;
+             I_Report.process3.sql.Text := ' select DISTINCT(pt.hn),pt.* ,'+'CONCAT(pt.pname,pt.fname,'+'" '+' "'+',pt.lname)as fullname' +
+                                          ' from vn_stat ov ,patient pt ,ovst ovst  '+
+                                          ' where  ov.vn=ovst.vn and pt.hn=ov.hn and ov.vstdate BETWEEN '+'"'+formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit1.Date)+'"'+' and '+'"'+ formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit2.Date)+'"'+' and ov.hn=pt.hn '+
+                                          ' and '+I_ReportService.Label2.Caption +
+                                          ' and ( (ov.pdx >= "E100" and ov.pdx <= "E149") '+
+                                          ' or (ov.dx0 >= "E100" and ov.dx0 <= "E149") '+
+                                          ' or (ov.dx1 >= "E100" and ov.dx1 <= "E149") '+
+                                          ' or (ov.dx2 >= "E100" and ov.dx2 <= "E149") '+
+                                          ' or (ov.dx3 >= "E100" and ov.dx3 <= "E149") '+
+                                          ' or (ov.dx4 >= "E100" and ov.dx4 <= "E149") '+
+                                          ' or (ov.dx5 >= "E100" and ov.dx5 <= "E149") ) order by pt.moopart';
+
+
+             //ShowMessage(I_Report.process.sql.Text);
+             I_Report.process3.open;
+             I_Report.frxReport_chronic3.PrepareReport;
+             I_Report.frxReport_chronic3.Print;
+        end;
+
+         if I_Report.cxdblabel1.Caption = '4' then
+        begin
+             I_Report.process4.close;
+             I_Report.process4.sql.Text := ' select DISTINCT(pt.hn),pt.* ,'+'CONCAT(pt.pname,pt.fname,'+'" '+' "'+',pt.lname)as fullname' +
+                                          ' from vn_stat ov ,patient pt ,ovst ovst  '+
+                                          ' where  ov.vn=ovst.vn and pt.hn=ov.hn and ov.vstdate BETWEEN '+'"'+formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit1.Date)+'"'+' and '+'"'+ formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit2.Date)+'"'+' and ov.hn=pt.hn '+
+                                          ' and '+I_ReportService.Label2.Caption +
+                                          ' and ( (ov.pdx >= "I10" and ov.pdx <= "I159") '+
+                                          ' or (ov.dx0 >= "I10" and ov.dx0 <= "I159") '+
+                                          ' or (ov.dx1 >= "I10" and ov.dx1 <= "I159") '+
+                                          ' or (ov.dx2 >= "I10" and ov.dx2 <= "I159") '+
+                                          ' or (ov.dx3 >= "I10" and ov.dx3 <= "I159") '+
+                                          ' or (ov.dx4 >= "I10" and ov.dx4 <= "I159") '+
+                                          ' or (ov.dx5 >= "I10" and ov.dx5 <= "I159") ) order by pt.moopart ';
+
+
+             //ShowMessage(I_Report.process.sql.Text);
+             I_Report.process4.open;
+             I_Report.frxReport_chronic4.PrepareReport;
+             I_Report.frxReport_chronic4.Print;
+        end;
+
+
+      if I_Report.cxdblabel1.Caption = '5' then
+        begin
+             I_Report.process5.close;
+             I_Report.process5.sql.Text :=' select DISTINCT(pt.hn),pt.* ,'+'CONCAT(pt.pname,pt.fname,'+'" '+' "'+',pt.lname)as fullname' +
+                                          ' from vn_stat ov ,patient pt ,ovst ovst '+
+                                          ' where ov.vn=ovst.vn and pt.hn=ov.hn and ov.vstdate BETWEEN '+'"'+formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit1.Date)+'"'+' and '+'"'+ formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit2.Date)+'"'+' and ov.hn=pt.hn '+
+                                          '  and ( (ov.pdx >= "E100" and ov.pdx <= "E149")  ' +
+                                          '  or (ov.dx0 >= "E100" and ov.dx0 <= "E149")  ' +
+                                          '  or (ov.dx1 >= "E100" and ov.dx1 <= "E149") '+
+                                          '  or (ov.dx2 >= "E100" and ov.dx2 <= "E149")  ' +
+                                          '  or (ov.dx3 >= "E100" and ov.dx3 <= "E149")  ' +
+                                          '  or (ov.dx4 >= "E100" and ov.dx4 <= "E149")  ' +
+                                          '  or (ov.dx5 >= "E100" and ov.dx5 <= "E149") ) '+
+                                          ' and '+I_ReportService.Label2.Caption +
+                                          '  and pt.hn in ( '+
+
+                                          ' select DISTINCT(pt.hn) '+
+                                          ' from vn_stat ov ,patient pt ,ovst ovst '+
+                                          ' where  ov.vn=ovst.vn and pt.hn=ov.hn and ov.vstdate BETWEEN '+'"'+formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit1.Date)+'"'+' and '+'"'+ formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit2.Date)+'"'+' and ov.hn=pt.hn '+
+                                          '  and ( (ov.pdx >= "I10" and ov.pdx <= "I159") '+
+                                          '  or (ov.dx0 >= "I10" and ov.dx0 <= "I159")  '+
+                                          '  or (ov.dx1 >= "I10" and ov.dx1 <= "I159")  '+
+                                          '  or (ov.dx2 >= "I10" and ov.dx2 <= "I159")  '+
+                                          '  or (ov.dx3 >= "I10" and ov.dx3 <= "I159")  '+
+                                          '  or (ov.dx4 >= "I10" and ov.dx4 <= "I159") '+
+                                          '  or (ov.dx5 >= "I10" and ov.dx5 <= "I159") )) order by pt.moopart ';
+
+
+             //ShowMessage(I_Report.process.sql.Text);
+             I_Report.process5.open;
+             I_Report.frxReport_chronic5.PrepareReport;
+             I_Report.frxReport_chronic5.Print;
+        end;
+
+
+      if I_Report.cxdblabel1.Caption = '6' then
+        begin
+             I_Report.process6.close;
+             I_Report.process6.sql.Text := ' select pt.hn,ov.vstdate,concat(pt.pname,pt.fname,'+'"  '+'"'+',pt.lname)as fullname,pt.birthday,'+
+                                           ' op.bps,op.smoking_type_id,lab_items.lab_items_code,lab_order.lab_order_result,pt.* '+
+                                           ' from ovst ov '+
+                                           ' LEFT JOIN patient pt on ov.hn=pt.hn  '+
+                                           ' LEFT JOIN opdscreen op on ov.vn = op.vn '+
+                                           ' LEFT JOIN lab_head lab_head on ov.vn = lab_head.vn '+
+                                           ' LEFT JOIN lab_order lab_order on lab_head.lab_order_number = lab_order.lab_order_number '+
+                                           ' LEFT JOIN lab_items lab_items on lab_order.lab_items_code = lab_items.lab_items_code '+
+                                           ' where  '+I_ReportService.Label2.Caption +' and ov.main_dep in (001,002,053,054) and lab_items.lab_items_code = '+'"'+'198'+'"'+' and pt.hn in ( select DISTINCT(pt.hn) from clinicmember cl LEFT JOIN patient pt ON cl.hn = pt.hn '+'WHERE cl.clinic in (001,002)) and ov.vstdate BETWEEN '+'"'+formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit1.Date)+'"'+' and '+'"'+ formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit2.Date)+'"';
+            I_Report.process6.open;
+            I_Report.frxReport_chronic6.PrepareReport;
+            I_Report.frxReport_chronic6.Print;
+
+
+
+
+        end;
+
+      if I_Report.cxdblabel1.Caption = '7' then
+        begin
+             I_Report.process7.close;
+             I_Report.process7.sql.Text := ' select DISTINCT(pt.hn),concat(pt.pname,pt.fname,'+'"  '+'"'+',pt.lname)as fullname,'+
+                                           ' pt.* '+
+                                           ' from ovst ov '+
+                                           ' LEFT JOIN patient pt on ov.hn=pt.hn  '+
+                                           ' LEFT JOIN opdscreen op on ov.vn = op.vn '+
+                                           ' LEFT JOIN lab_head lab_head on ov.vn = lab_head.vn '+
+                                           ' LEFT JOIN lab_order lab_order on lab_head.lab_order_number = lab_order.lab_order_number '+
+                                           ' LEFT JOIN lab_items lab_items on lab_order.lab_items_code = lab_items.lab_items_code '+
+                                           ' where  '+I_ReportService.Label2.Caption +' and ov.main_dep in (001,002,053,054) and lab_items.lab_items_code <> '+'"'+'198'+'"'+' and pt.hn in ( select DISTINCT(pt.hn) from clinicmember cl LEFT JOIN patient pt ON cl.hn = pt.hn '+'WHERE cl.clinic in (001,002)) and ov.vstdate BETWEEN '+'"'+formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit1.Date)+'"'+' and '+'"'+ formatdatetime('yyyy-mm-dd',R_pickdate.JvDatePickerEdit2.Date)+'"';
+            I_Report.process7.open;
+            I_Report.frxReport_chronic7.PrepareReport;
+            I_Report.frxReport_chronic7.Print;
+
+
+
+
+        end;
+
+
+
+end;
+
+procedure TR_pickdate.FormShow(Sender: TObject);
+begin
+    ds1.Caption := FormatThaiDate('dd mmmm eeee',JvDatePickerEdit1.Date);
+    ds2.Caption := FormatThaiDate('dd mmmm eeee',JvDatePickerEdit2.Date);
+end;
+
+procedure TR_pickdate.JvDatePickerEdit1Change(Sender: TObject);
+begin
+ds1.Caption := FormatThaiDate('dd mmmm eeee',JvDatePickerEdit1.Date);
+end;
+
+procedure TR_pickdate.JvDatePickerEdit2Change(Sender: TObject);
+begin
+ds2.Caption := FormatThaiDate('dd mmmm eeee',JvDatePickerEdit2.Date);
+end;
+
+end.

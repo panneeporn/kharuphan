@@ -1,0 +1,62 @@
+unit RentSetupU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxGDIPlusClasses, Vcl.ExtCtrls,
+  Vcl.StdCtrls;
+
+type
+  TForm9 = class(TForm)
+    Edit1: TEdit;
+    Panel1: TPanel;
+    Image3: TImage;
+    Image2: TImage;
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Image2Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form9: TForm9;
+
+implementation
+
+{$R *.dfm}
+
+uses RentOPDU, RentSettingU;
+
+procedure TForm9.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+        if key = vk_return then
+            begin
+                   if edit1.Text = RentOPD.label9.Caption then
+                      begin
+
+                                Application.CreateForm(Trent_setup,rent_setup);
+                                rent_setup.ShowModal;
+                      end
+                   else
+                      begin
+                            ShowMessage('ข้อมูลผิดพลาด');
+                      end;
+
+            end;
+end;
+
+procedure TForm9.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+release;
+end;
+
+procedure TForm9.Image2Click(Sender: TObject);
+begin
+close;
+end;
+
+end.

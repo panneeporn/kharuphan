@@ -1,0 +1,39 @@
+unit StatusU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, JvExComCtrls, JvComCtrls,
+  W7Classes, W7ListViewItems, Vcl.ExtCtrls, Vcl.ImgList, cxGraphics;
+
+type
+  TStatus = class(TForm)
+    W7TaskItem3: TW7TaskItem;
+    W7TaskItem1: TW7TaskItem;
+    W7TaskItem2: TW7TaskItem;
+    cxImageList1: TcxImageList;
+    procedure W7TaskItem2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Status: TStatus;
+
+implementation
+
+{$R *.dfm}
+
+uses MainU, StatusTU;
+
+procedure TStatus.W7TaskItem2Click(Sender: TObject);
+begin
+ if IsFormOpen('StatusT') = False  then
+            Application.CreateForm(TStatusT,StatusT);
+            StatusT.Show;
+end;
+
+end.

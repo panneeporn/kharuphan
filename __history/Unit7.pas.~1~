@@ -1,0 +1,48 @@
+unit Unit7;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, MyAccess,
+  Vcl.StdCtrls;
+
+type
+  TForm7 = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Label6: TLabel;
+    ComboBox1: TComboBox;
+    Button1: TButton;
+    MyQuery1: TMyQuery;
+    DataSource1: TDataSource;
+    procedure Edit1Enter(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form7: TForm7;
+
+implementation
+
+{$R *.dfm}
+
+uses DatabasicU, datamodual;
+
+procedure TForm7.Edit1Enter(Sender: TObject);
+begin
+edit2.Text := edit1.Text
+end;
+
+end.

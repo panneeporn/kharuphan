@@ -1,0 +1,386 @@
+unit AccessPU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, W7Bars,
+  W7Classes, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint,
+  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  cxCheckBox, Vcl.Menus, Data.DB, MemDS, DBAccess, MyAccess, Vcl.StdCtrls,
+  cxButtons, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
+  cxDBLookupEdit, cxDBLookupComboBox, dxSkinscxPCPainter, dxBarBuiltInMenu, cxPC;
+
+type
+  TAccessMU = class(TForm)
+    W7ToolBar1: TW7ToolBar;
+    W7InformationBar1: TW7InformationBar;
+    Panel1: TPanel;
+    cxLookupComboBox1: TcxLookupComboBox;
+    cxButton1: TcxButton;
+    cxButton2: TcxButton;
+    MyQuery1: TMyQuery;
+    DataSource1: TDataSource;
+    cxPageControl1: TcxPageControl;
+    cxTabSheet1: TcxTabSheet;
+    cxTabSheet2: TcxTabSheet;
+    P10: TcxCheckBox;
+    P9: TcxCheckBox;
+    P8: TcxCheckBox;
+    P7: TcxCheckBox;
+    P6: TcxCheckBox;
+    P5: TcxCheckBox;
+    P4: TcxCheckBox;
+    P3: TcxCheckBox;
+    P2: TcxCheckBox;
+    P1: TcxCheckBox;
+    C1: TcxCheckBox;
+    C2: TcxCheckBox;
+    C3: TcxCheckBox;
+    C4: TcxCheckBox;
+    C5: TcxCheckBox;
+    cxTabSheet3: TcxTabSheet;
+    I1: TcxCheckBox;
+    I2: TcxCheckBox;
+    I3: TcxCheckBox;
+    I4: TcxCheckBox;
+    I5: TcxCheckBox;
+    I6: TcxCheckBox;
+    I7: TcxCheckBox;
+    Panel2: TPanel;
+    MyQuery4: TMyQuery;
+    MyQuery3: TMyQuery;
+    MyQuery2: TMyQuery;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure P1Click(Sender: TObject);
+    procedure P2Click(Sender: TObject);
+    procedure P3Click(Sender: TObject);
+    procedure P4Click(Sender: TObject);
+    procedure P5Click(Sender: TObject);
+    procedure P6Click(Sender: TObject);
+    procedure P7Click(Sender: TObject);
+    procedure P8Click(Sender: TObject);
+    procedure P9Click(Sender: TObject);
+    procedure P10Click(Sender: TObject);
+    procedure C1Click(Sender: TObject);
+    procedure C2Click(Sender: TObject);
+    procedure C3Click(Sender: TObject);
+    procedure C4Click(Sender: TObject);
+    procedure C5Click(Sender: TObject);
+    procedure I1Click(Sender: TObject);
+    procedure I2Click(Sender: TObject);
+    procedure I3Click(Sender: TObject);
+    procedure I4Click(Sender: TObject);
+    procedure I5Click(Sender: TObject);
+    procedure I6Click(Sender: TObject);
+    procedure I7Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  AccessMU: TAccessMU;
+
+implementation
+
+{$R *.dfm}
+
+uses MainU, datamodual;
+
+procedure TAccessMU.C1Click(Sender: TObject);
+begin
+        if C1.Checked = true then
+          begin
+            C1.Text :=  C1.Text+'[C1]';
+          end;
+      if C1.Checked = False then
+          begin
+            C1.Text :=  StringReplace(C1.Text,'[C1]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.C2Click(Sender: TObject);
+begin
+       if C2.Checked = true then
+          begin
+            C2.Text :=  C2.Text+'[C2]';
+          end;
+      if C2.Checked = False then
+          begin
+            C2.Text :=  StringReplace(C2.Text,'[C2]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.C3Click(Sender: TObject);
+begin
+       if C3.Checked = true then
+          begin
+            C3.Text :=  C3.Text+'[C3]';
+          end;
+      if C3.Checked = False then
+          begin
+            C3.Text :=  StringReplace(C3.Text,'[C3]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.C4Click(Sender: TObject);
+begin
+       if C4.Checked = true then
+          begin
+            C4.Text :=  C4.Text+'[C4]';
+          end;
+      if C4.Checked = False then
+          begin
+            C4.Text :=  StringReplace(C4.Text,'[C4]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.C5Click(Sender: TObject);
+begin
+       if C5.Checked = true then
+          begin
+            C5.Text :=  C5.Text+'[C5]';
+          end;
+      if C5.Checked = False then
+          begin
+            C5.Text :=  StringReplace(C5.Text,'[C5]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+MainForm.dxRibbon1.ShowTabGroups := true ;
+release;
+end;
+
+procedure TAccessMU.FormCreate(Sender: TObject);
+begin
+MainForm.dxRibbon1.ShowTabGroups := false ;
+end;
+
+procedure TAccessMU.FormShow(Sender: TObject);
+begin
+MyQuery1.Open;
+end;
+
+procedure TAccessMU.I1Click(Sender: TObject);
+begin
+       if I1.Checked = true then
+          begin
+            I1.Text :=  I1.Text+'[I1]';
+          end;
+      if I1.Checked = False then
+          begin
+            I1.Text :=  StringReplace(I1.Text,'[I1]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.I2Click(Sender: TObject);
+begin
+if I2.Checked = true then
+          begin
+            I2.Text :=  I2.Text+'[I2]';
+          end;
+      if I2.Checked = False then
+          begin
+            I2.Text :=  StringReplace(I2.Text,'[I2]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.I3Click(Sender: TObject);
+begin
+if I3.Checked = true then
+          begin
+            I3.Text :=  I3.Text+'[I3]';
+          end;
+      if I3.Checked = False then
+          begin
+            I3.Text :=  StringReplace(I3.Text,'[I3]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.I4Click(Sender: TObject);
+begin
+if I4.Checked = true then
+          begin
+            I4.Text :=  I4.Text+'[I4]';
+          end;
+      if I4.Checked = False then
+          begin
+            I4.Text :=  StringReplace(I4.Text,'[I4]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.I5Click(Sender: TObject);
+begin
+if I5.Checked = true then
+          begin
+            I5.Text :=  I5.Text+'[I5]';
+          end;
+      if I5.Checked = False then
+          begin
+            I5.Text :=  StringReplace(I5.Text,'[I5]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.I6Click(Sender: TObject);
+begin
+if I6.Checked = true then
+          begin
+            I6.Text :=  I6.Text+'[I6]';
+          end;
+      if I6.Checked = False then
+          begin
+            I6.Text :=  StringReplace(I6.Text,'[I6]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.I7Click(Sender: TObject);
+begin
+if I7.Checked = true then
+          begin
+            I7.Text :=  I7.Text+'[I7]';
+          end;
+      if I7.Checked = False then
+          begin
+            I7.Text :=  StringReplace(I7.Text,'[I7]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P10Click(Sender: TObject);
+begin
+        if P10.Checked = true then
+          begin
+            P10.Text :=  P10.Text+'[P10]';
+          end;
+      if P10.Checked = False then
+          begin
+            P10.Text :=  StringReplace(P10.Text,'[P10]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P1Click(Sender: TObject);
+begin
+        if P1.Checked = true then
+          begin
+            P1.Text :=  P1.Text+'[P1]';
+          end;
+      if P1.Checked = False then
+          begin
+            P1.Text :=  StringReplace(P1.Text,'[P1]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P2Click(Sender: TObject);
+begin
+        if P2.Checked = true then
+          begin
+            P2.Text :=  P2.Text+'[P2]';
+          end;
+      if P2.Checked = False then
+          begin
+            P2.Text :=  StringReplace(P2.Text,'[P2]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P3Click(Sender: TObject);
+begin
+        if P3.Checked = true then
+          begin
+            P3.Text :=  P3.Text+'[P3]';
+          end;
+      if P3.Checked = False then
+          begin
+            P3.Text :=  StringReplace(P3.Text,'[P3]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P4Click(Sender: TObject);
+begin
+        if P4.Checked = true then
+          begin
+            P4.Text :=  P4.Text+'[P4]';
+          end;
+      if P4.Checked = False then
+          begin
+            P4.Text :=  StringReplace(P4.Text,'[P4]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P5Click(Sender: TObject);
+begin
+        if P5.Checked = true then
+          begin
+            P5.Text :=  P5.Text+'[P5]';
+          end;
+      if P5.Checked = False then
+          begin
+            P5.Text :=  StringReplace(P5.Text,'[P5]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P6Click(Sender: TObject);
+begin
+        if P6.Checked = true then
+          begin
+            P6.Text :=  P6.Text+'[P6]';
+          end;
+      if P6.Checked = False then
+          begin
+            P6.Text :=  StringReplace(P6.Text,'[P6]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P7Click(Sender: TObject);
+begin
+        if P7.Checked = true then
+          begin
+            P7.Text :=  P7.Text+'[P7]';
+          end;
+      if P7.Checked = False then
+          begin
+            P7.Text :=  StringReplace(P7.Text,'[P7]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P8Click(Sender: TObject);
+begin
+        if P8.Checked = true then
+          begin
+            P8.Text :=  P8.Text+'[P8]';
+          end;
+      if P8.Checked = False then
+          begin
+            P8.Text :=  StringReplace(P8.Text,'[P8]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccessMU.P9Click(Sender: TObject);
+begin
+        if P9.Checked = true then
+          begin
+            P9.Text :=  P9.Text+'[P9]';
+          end;
+      if P9.Checked = False then
+          begin
+            P9.Text :=  StringReplace(P9.Text,'[P9]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+end.

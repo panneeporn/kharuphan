@@ -1,0 +1,739 @@
+unit RentOPDU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, dxGDIPlusClasses,
+  Vcl.ExtCtrls, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
+  cxContainer, cxEdit, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint,
+  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit, cxDBLookupEdit,
+  cxDBLookupComboBox, Data.DB, MemDS, DBAccess, MyAccess, cxStyles,
+  dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage,
+  cxNavigator, cxDBData, Vcl.Mask, JvExMask, JvToolEdit, JvMaskEdit,
+  JvCheckedMaskEdit, JvDatePickerEdit, cxGridLevel, cxClasses, cxGridCustomView,
+  cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, Vcl.Menus,
+  cxButtons, cxImageComboBox, Vcl.ImgList;
+
+type
+  TRentOPD = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Image1: TImage;
+    Image2: TImage;
+    Panel2: TPanel;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    DataSource1: TDataSource;
+    Oapp: TMyQuery;
+    cxLookupComboBox1: TcxLookupComboBox;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Label3: TLabel;
+    Label4: TLabel;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label5: TLabel;
+    Panel5: TPanel;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    RadioButton4: TRadioButton;
+    RadioButton5: TRadioButton;
+    Panel9: TPanel;
+    Panel10: TPanel;
+    RadioButton6: TRadioButton;
+    RadioButton7: TRadioButton;
+    Panel11: TPanel;
+    Label6: TLabel;
+    ComboBox1: TComboBox;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid2DBTableView1: TcxGridDBTableView;
+    cxGrid2Level1: TcxGridLevel;
+    cxGrid2: TcxGrid;
+    MyQuery1: TMyQuery;
+    JvDatePickerEdit1: TJvDatePickerEdit;
+    MyQuery2: TMyQuery;
+    DataSource2: TDataSource;
+    cxGrid1DBTableView1hn: TcxGridDBColumn;
+    cxGrid1DBTableView1fullname: TcxGridDBColumn;
+    cxGrid1DBTableView1rent: TcxGridDBColumn;
+    cxGrid1DBTableView1rent_date: TcxGridDBColumn;
+    cxGrid1DBTableView1back: TcxGridDBColumn;
+    cxGrid1DBTableView1back_date: TcxGridDBColumn;
+    cxGrid1DBTableView1staff: TcxGridDBColumn;
+    cxGrid1DBTableView1customer: TcxGridDBColumn;
+    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    cxGrid1DBTableView1depcode: TcxGridDBColumn;
+    Label7: TLabel;
+    cxButton1: TcxButton;
+    Label8: TLabel;
+    Fullname: TMyQuery;
+    Process: TMyQuery;
+    cxImageList1: TcxImageList;
+    Process1: TMyQuery;
+    Update: TMyQuery;
+    cxGrid1DBTableView1staff_back: TcxGridDBColumn;
+    cxGrid1DBTableView1customer_back: TcxGridDBColumn;
+    Last: TMyQuery;
+    DataSource3: TDataSource;
+    cxGrid2DBTableView1hn: TcxGridDBColumn;
+    cxGrid2DBTableView1fullname: TcxGridDBColumn;
+    cxGrid2DBTableView1rent: TcxGridDBColumn;
+    cxGrid2DBTableView1rent_date: TcxGridDBColumn;
+    cxGrid2DBTableView1staff: TcxGridDBColumn;
+    cxGrid2DBTableView1customer: TcxGridDBColumn;
+    cxGrid2DBTableView1depcode: TcxGridDBColumn;
+    cxGrid2DBTableView1Column1: TcxGridDBColumn;
+    cxButton2: TcxButton;
+    RadioButton8: TRadioButton;
+    CheckBox1: TCheckBox;
+    RadioButton9: TRadioButton;
+    RadioButton10: TRadioButton;
+    cxGrid1DBTableView1choice: TcxGridDBColumn;
+    cxGrid1DBTableView1an: TcxGridDBColumn;
+    cxButton3: TcxButton;
+    Label9: TLabel;
+    cxGrid2DBTableView1diff: TcxGridDBColumn;
+    cxGrid2DBTableView1choice: TcxGridDBColumn;
+    cxGrid2DBTableView1an: TcxGridDBColumn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure Image2Click(Sender: TObject);
+    procedure RadioButton2Click(Sender: TObject);
+    procedure RadioButton3Click(Sender: TObject);
+    procedure RadioButton4Click(Sender: TObject);
+    procedure RadioButton5Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cxGrid1DBTableView1Column1GetDisplayText(
+      Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      var AText: string);
+    procedure cxLookupComboBox1PropertiesChange(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+    procedure cxGrid2DBTableView1Column1GetDisplayText(
+      Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      var AText: string);
+    procedure cxButton2Click(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
+    procedure Edit3KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure Edit2KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure CheckBox1Click(Sender: TObject);
+    procedure RadioButton9Click(Sender: TObject);
+    procedure RadioButton10Click(Sender: TObject);
+    procedure cxButton3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  RentOPD: TRentOPD;
+
+implementation
+
+{$R *.dfm}
+
+uses MainU, datamodual, RentSetupU;
+
+procedure TRentOPD.CheckBox1Click(Sender: TObject);
+begin
+edit1.SetFocus;
+end;
+
+procedure TRentOPD.cxButton1Click(Sender: TObject);
+VAR
+name : string;
+rent : string;
+hn : string;
+begin
+
+
+////// HN //////
+if RadioButton9.Checked = true then
+begin
+
+ if (edit3.Text <> '') then
+    begin
+        if (edit2.Text <> '') then
+          begin
+               if (edit1.Text <> '') then
+                   begin
+                                         if RadioButton1.Checked = true then
+                                              begin
+                                                    Process1.Close;
+                                                    Process1.SQL.Text := 'select count(*)as num from rent where rent = '+'"'+'Y'+'"'+' and back ='+'"'+'N'+'"'+' and hn = '+'"'+edit3.Text+'"';
+                                                    Process1.Open;
+                                                    rent := Process1.FieldByName('num').AsString;
+                                                      if rent = '0' then
+                                                          begin
+                                                              Fullname.Close;
+                                                              Fullname.SQL.Text := 'select hn,concat(pname,fname,'+'" '+' "'+',lname) as fullname from patient where hn = '+'"'+edit3.Text+'"';
+                                                              Fullname.Open;
+                                                              name:=Fullname.FieldByName('fullname').AsString;
+                                                              Label8.Caption := name;
+                                                              Process.Close;
+                                                              Process.Open;
+                                                              Process.Append;
+                                                              Process.FieldByName('hn').AsString :=  edit3.Text;
+                                                              Process.FieldByName('fullname').AsString :=  label8.Caption;
+                                                              Process.FieldByName('rent').AsString :=  'Y' ;
+                                                              Process.FieldByName('rent_date').AsDateTime := JvDatePickerEdit1.Date;
+                                                              Process.FieldByName('back').AsString :=  'N' ;
+                                                              Process.FieldByName('staff').AsString  :=  edit1.Text;
+                                                              Process.FieldByName('customer').AsString := edit2.Text;
+                                                              Process.FieldByName('depcode').AsString := label7.Caption;
+                                                              Process.FieldByName('choice').AsString := 'H';
+
+                                                                  if cxLookupComboBox1.EditValue = null then
+                                                                      begin
+                                                                          ShowMessage('กรุณาเลือกแผนก');
+                                                                          edit1.Clear;
+                                                                          edit1.SetFocus;
+                                                                      end;
+                                                                  if cxLookupComboBox1.EditValue <> null  then
+                                                                      begin
+                                                                          //  ShowMessage('ทดสอบ');
+                                                                          Process.Post;
+
+                                                          end;
+                                                    MyQuery2.Refresh;
+                                              end;
+
+                                                      if rent ='1' then
+                                                            begin
+                                                                ShowMessage('เวชระเบียนยังมีรายการค้างยืม');
+                                                            end;
+                                          end;
+
+                          if RadioButton2.Checked = true then
+                                begin
+                                    Process1.Close;
+                                    Process1.SQL.Text := 'select count(*)as num from rent where rent = '+'"'+'Y'+'"'+' and back ='+'"'+'N'+'"'+' and hn = '+'"'+edit3.Text+'"';
+                                    Process1.Open;
+                                    rent := Process1.FieldByName('num').AsString;
+                                    if rent = '1' then
+                                      begin
+                                            Update.Close;
+                                            Update.SQL.Text := 'update rent set back = '+'"'+'Y'+'"'+',staff_back ='+'"'+edit1.Text+'"'+',customer_back = '+'"'+edit2.Text+'"'+',back_date = '+'"'+ formatdatetime('yyyy-mm-dd',JvDatePickerEdit1.Date)+'"'+' where rent = '+'"'+'Y'+'"'+' and back ='+'"'+'N'+'"'+' and hn = '+'"'+edit3.Text+'"';
+                                            Update.Execute;
+                                            MyQuery2.Refresh;
+                                          //ShowMessage('ทดสอบ');
+                                      end;
+                                    if rent = '0' then
+                                      begin
+                                          ShowMessage('ไม่มีข้อมูลเวชระเบียนดังกล่าวในระบบยืม');
+                                      end;
+
+
+                                end;
+
+                          if RadioButton3.Checked = true then
+                                begin
+
+                                end;
+
+
+
+
+
+if CheckBox1.Checked = true then
+   begin
+        edit3.Clear;
+        edit3.SetFocus;
+   end;
+if CheckBox1.Checked = false then
+   begin
+        edit1.Clear;
+        edit2.Clear;
+        edit3.Clear;
+        edit1.SetFocus;
+   end;
+
+
+
+
+
+
+                   end
+
+               else
+                  begin
+                       edit1.Clear;
+                       edit2.Clear;
+                       edit3.Clear;
+                       edit1.SetFocus;
+                       ShowMessage('กรุณากรอกข้อมูลให้ครบ');
+                  end;
+
+          end
+        else
+            begin
+                  edit1.Clear;
+                  edit2.Clear;
+                  edit3.Clear;
+                  edit1.SetFocus;
+                  ShowMessage('กรุณากรอกข้อมูลให้ครบ');
+            end;
+
+    end
+ else
+     begin
+           edit1.Clear;
+           edit2.Clear;
+           edit3.Clear;
+           edit1.SetFocus;
+           ShowMessage('กรุณากรอกข้อมูลให้ครบ');
+     end;
+
+
+
+
+
+
+
+////////////
+end;
+///////////////////////
+
+
+
+
+
+
+
+////// AN //////
+if RadioButton10.Checked = true then
+begin
+
+ if (edit3.Text <> '') then
+    begin
+        if (edit2.Text <> '') then
+          begin
+               if (edit1.Text <> '') then
+                   begin
+                                         if RadioButton1.Checked = true then
+                                              begin
+                                                    Process1.Close;
+                                                    Process1.SQL.Text := 'select count(*)as num from rent where rent = '+'"'+'Y'+'"'+' and back ='+'"'+'N'+'"'+' and an = '+'"'+edit3.Text+'"';
+                                                    Process1.Open;
+                                                    rent := Process1.FieldByName('num').AsString;
+                                                      if rent = '0' then
+                                                          begin
+                                                              Fullname.Close;
+                                                    Fullname.SQL.Text := 'select ip.an,ip.hn,concat(p.pname,p.fname,'+'" '+' "'+',p.lname) as fullname from ipt ip '+
+                                                                         ' LEFT JOIN patient p on ip.hn = p.hn '+
+                                                                         ' where ip.an = '+'"'+edit3.Text+'"';
+
+
+                                                    Fullname.Open;
+                                                    hn :=Fullname.FieldByName('hn').AsString;
+                                                    name:=Fullname.FieldByName('fullname').AsString;
+                                                    Label8.Caption := name;
+                                                    Process.Close;
+                                                    Process.Open;
+                                                    Process.Append;
+                                                    Process.FieldByName('an').AsString :=  edit3.Text;
+                                                    Process.FieldByName('hn').AsString :=  hn;
+                                                    Process.FieldByName('fullname').AsString :=  label8.Caption;
+                                                    Process.FieldByName('rent').AsString :=  'Y' ;
+                                                    Process.FieldByName('rent_date').AsDateTime := JvDatePickerEdit1.Date;
+                                                    Process.FieldByName('back').AsString :=  'N' ;
+                                                    Process.FieldByName('staff').AsString  :=  edit1.Text;
+                                                    Process.FieldByName('customer').AsString := edit2.Text;
+                                                    Process.FieldByName('depcode').AsString := label7.Caption;
+                                                    Process.FieldByName('choice').AsString := 'A';
+
+                                                                  if cxLookupComboBox1.EditValue = null then
+                                                                      begin
+                                                                          ShowMessage('กรุณาเลือกแผนก');
+                                                                          edit1.Clear;
+                                                                          edit1.SetFocus;
+                                                                      end;
+                                                                  if cxLookupComboBox1.EditValue <> null  then
+                                                                      begin
+                                                                          //  ShowMessage('ทดสอบ');
+                                                                          Process.Post;
+
+                                                          end;
+                                                    MyQuery2.Refresh;
+                                              end;
+
+                                                      if rent ='1' then
+                                                            begin
+                                                                ShowMessage('เวชระเบียนยังมีรายการค้างยืม');
+                                                            end;
+                                          end;
+
+                          if RadioButton2.Checked = true then
+                                begin
+                                    Process1.Close;
+                                    Process1.SQL.Text := 'select count(*)as num from rent where rent = '+'"'+'Y'+'"'+' and back ='+'"'+'N'+'"'+' and an = '+'"'+edit3.Text+'"';
+                                    Process1.Open;
+                                    rent := Process1.FieldByName('num').AsString;
+                                    if rent = '1' then
+                                      begin
+                                            Update.Close;
+                                            Update.SQL.Text := 'update rent set back = '+'"'+'Y'+'"'+',staff_back ='+'"'+edit1.Text+'"'+',customer_back = '+'"'+edit2.Text+'"'+',back_date = '+'"'+ formatdatetime('yyyy-mm-dd',JvDatePickerEdit1.Date)+'"'+' where rent = '+'"'+'Y'+'"'+' and back ='+'"'+'N'+'"'+' and an = '+'"'+edit3.Text+'"';
+                                            Update.Execute;
+                                            MyQuery2.Refresh;
+                                          //ShowMessage('ทดสอบ');
+                                      end;
+                                    if rent = '0' then
+                                      begin
+                                          ShowMessage('ไม่มีข้อมูลเวชระเบียนดังกล่าวในระบบยืม');
+                                      end;
+
+
+                                end;
+
+                          if RadioButton3.Checked = true then
+                                begin
+
+                                end;
+
+
+
+
+
+if CheckBox1.Checked = true then
+   begin
+        edit3.Clear;
+        edit3.SetFocus;
+   end;
+if CheckBox1.Checked = false then
+   begin
+        edit1.Clear;
+        edit2.Clear;
+        edit3.Clear;
+        edit1.SetFocus;
+   end;
+
+
+
+
+
+
+                   end
+
+               else
+                  begin
+                       edit1.Clear;
+                       edit2.Clear;
+                       edit3.Clear;
+                       edit1.SetFocus;
+                       ShowMessage('กรุณากรอกข้อมูลให้ครบ');
+                  end;
+
+          end
+        else
+            begin
+                  edit1.Clear;
+                  edit2.Clear;
+                  edit3.Clear;
+                  edit1.SetFocus;
+                  ShowMessage('กรุณากรอกข้อมูลให้ครบ');
+            end;
+
+    end
+ else
+     begin
+           edit1.Clear;
+           edit2.Clear;
+           edit3.Clear;
+           edit1.SetFocus;
+           ShowMessage('กรุณากรอกข้อมูลให้ครบ');
+     end;
+
+
+
+
+
+
+
+////////////
+end;
+///////////////////////
+
+
+
+end;
+
+procedure TRentOPD.cxButton2Click(Sender: TObject);
+begin
+       if combobox1.Text = '1 วัน' then
+          begin
+                Last.Close;
+                Last.SQL.Text := ' SELECT *,hn,DATEDIFF(now(),rent_date)as diff from rent '+
+                                 ' where rent = '+'"'+'Y'+'"'+' and back = '+'"'+'N'+'"'+
+                                 ' HAVING diff < 2 ';
+                Last.Open;
+               //ShowMessage('ทดสอบ');
+          end;
+       if combobox1.Text = '2 วัน' then
+          begin
+                Last.Close;
+                Last.SQL.Text := ' SELECT *,hn,DATEDIFF(now(),rent_date)as diff from rent '+
+                                 ' where rent = '+'"'+'Y'+'"'+' and back = '+'"'+'N'+'"'+
+                                 ' HAVING diff < 3 ';
+                Last.Open;
+          end;
+       if combobox1.Text = '3 วัน' then
+          begin
+                Last.Close;
+                Last.SQL.Text := ' SELECT *,hn,DATEDIFF(now(),rent_date)as diff from rent '+
+                                 ' where rent = '+'"'+'Y'+'"'+' and back = '+'"'+'N'+'"'+
+                                 ' HAVING diff < 4 ';
+                Last.Open;
+          end;
+       if combobox1.Text = '4 วัน' then
+          begin
+                Last.Close;
+                Last.SQL.Text := ' SELECT *,hn,DATEDIFF(now(),rent_date)as diff from rent '+
+                                 ' where rent = '+'"'+'Y'+'"'+' and back = '+'"'+'N'+'"'+
+                                 ' HAVING diff < 5 ';
+                Last.Open;
+          end;
+       if combobox1.Text = '5 วัน' then
+          begin
+                Last.Close;
+                Last.SQL.Text := ' SELECT *,hn,DATEDIFF(now(),rent_date)as diff from rent '+
+                                 ' where rent = '+'"'+'Y'+'"'+' and back = '+'"'+'N'+'"'+
+                                 ' HAVING diff < 6 ';
+                Last.Open;
+          end;
+       if combobox1.Text = '>5 วัน' then
+          begin
+                Last.Close;
+                Last.SQL.Text := ' SELECT *,hn,DATEDIFF(now(),rent_date)as diff from rent '+
+                                 ' where rent = '+'"'+'Y'+'"'+' and back = '+'"'+'N'+'"'+
+                                 ' HAVING diff > 5 ';
+                Last.Open;
+          end;
+
+end;
+
+procedure TRentOPD.cxButton3Click(Sender: TObject);
+begin
+                                Application.CreateForm(TForm9,Form9);
+                                Form9.ShowModal;
+end;
+
+procedure TRentOPD.cxGrid1DBTableView1Column1GetDisplayText(
+  Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+  var AText: string);
+var
+  Row: Integer;
+
+begin
+     Row := Sender.GridView.DataController.GetRowIndexByRecordIndex(ARecord.RecordIndex, False);
+
+  AText := IntToStr(Row+1);
+
+
+end;
+
+procedure TRentOPD.cxGrid2DBTableView1Column1GetDisplayText(
+  Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+  var AText: string);
+var
+  Row: Integer;
+
+begin
+     Row := Sender.GridView.DataController.GetRowIndexByRecordIndex(ARecord.RecordIndex, False);
+
+  AText := IntToStr(Row+1);
+
+
+end;
+
+procedure TRentOPD.cxLookupComboBox1PropertiesChange(Sender: TObject);
+begin
+label7.Caption :=cxLookupComboBox1.EditValue;
+end;
+
+procedure TRentOPD.Edit1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+{
+           if RadioButton1.Checked = true then
+                begin
+                       if (label7.Caption <> 'Label7') or (label7.Caption <> ' ')  then
+                            begin
+                                edit2.SetFocus;
+                            end;
+                        if (label7.Caption = 'Label7') or (label7.Caption = ' ')  then
+                            begin
+                                  ShowMessage('กรุณาเลือกแผนก');
+                                  edit1.Clear;
+                                  edit1.SetFocus;
+                            end;
+                end;
+               if RadioButton2.Checked = true then
+                  begin
+                     edit2.SetFocus;
+                  end;
+ }
+
+
+      if key = vk_return then
+            begin
+              if RadioButton1.Checked = true then
+                begin
+                       if (label7.Caption <> 'Label7') or (label7.Caption <> ' ')  then
+                            begin
+                                edit2.SetFocus;
+                            end;
+                        if (label7.Caption = 'Label7') or (label7.Caption = ' ')  then
+                            begin
+                                  ShowMessage('กรุณาเลือกแผนก');
+
+                                  edit1.Clear;
+                                  edit1.SetFocus;
+                                  Sleep(10);
+                            end;
+                end;
+               if RadioButton2.Checked = true then
+                  begin
+                     edit2.SetFocus;
+                  end;
+
+            end;
+
+
+
+
+end;
+
+procedure TRentOPD.Edit2KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+        if key = vk_return then
+            begin
+                 edit3.SetFocus;
+            end;
+end;
+
+procedure TRentOPD.Edit3KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+        if key = vk_return then
+            begin
+                cxbutton1.Click;
+            end;
+end;
+
+procedure TRentOPD.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+MainForm.dxRibbon1.ShowTabGroups := true ;
+release;
+end;
+
+procedure TRentOPD.FormCreate(Sender: TObject);
+begin
+MainForm.dxRibbon1.ShowTabGroups := false ;
+end;
+
+procedure TRentOPD.FormResize(Sender: TObject);
+
+begin
+
+panel5.Width := (Trunc(Panel4.Width/5))*3;
+panel6.Width := (Trunc(Panel4.Width/5))*2;
+end;
+
+procedure TRentOPD.FormShow(Sender: TObject);
+begin
+MyQuery1.Open;
+JvDatePickerEdit1.Date := MyQuery1.FieldByName('time').AsDateTime;
+
+Oapp.Open;
+MyQuery2.Open;
+edit1.SetFocus;
+
+end;
+
+procedure TRentOPD.Image2Click(Sender: TObject);
+begin
+close;
+end;
+
+
+
+procedure TRentOPD.RadioButton10Click(Sender: TObject);
+begin
+edit1.SetFocus;
+end;
+
+procedure TRentOPD.RadioButton1Click(Sender: TObject);
+begin
+       if RadioButton1.Checked = true then
+    begin
+         panel3.Caption := 'ยืม';
+         panel3.Color := $0080972D;
+         edit1.SetFocus;
+    end;
+end;
+
+procedure TRentOPD.RadioButton2Click(Sender: TObject);
+begin
+ if RadioButton2.Checked = true then
+    begin
+         panel3.Caption := 'คืน';
+         panel3.Color := $0050CFC9;
+          edit1.SetFocus;
+    end;
+end;
+
+procedure TRentOPD.RadioButton3Click(Sender: TObject);
+begin
+
+if RadioButton3.Checked = true then
+    begin
+         panel3.Caption := 'ยกเลิก';
+         panel3.Color := $00676AE9;
+          edit1.SetFocus;
+    end;
+end;
+
+ procedure TRentOPD.RadioButton4Click(Sender: TObject);
+    begin
+          MyQuery2.Close;
+          MyQuery2.SQL.Text:= 'select * from rent order by id desc';
+          MyQuery2.Open;
+    end;
+
+ procedure TRentOPD.RadioButton5Click(Sender: TObject);
+    begin
+          MyQuery2.Close;
+          MyQuery2.SQL.Text:= 'select * from rent where rent ='+'"'+'Y'+'"'+' and back ='+'"'+'N'+'"';
+          MyQuery2.Open;
+    end;
+
+
+
+  procedure TRentOPD.RadioButton9Click(Sender: TObject);
+begin
+ edit1.SetFocus;
+end;
+
+end.

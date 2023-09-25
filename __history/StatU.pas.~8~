@@ -1,0 +1,76 @@
+unit StatU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ImgList, cxGraphics, W7Classes,
+  W7ListViewItems;
+
+type
+  TStat = class(TForm)
+    W7TaskItem1: TW7TaskItem;
+    W7TaskItem2: TW7TaskItem;
+    W7TaskItem3: TW7TaskItem;
+    cxImageList1: TcxImageList;
+    W7TaskItem4: TW7TaskItem;
+    procedure W7TaskItem2Click(Sender: TObject);
+    procedure W7TaskItem1Click(Sender: TObject);
+    procedure W7TaskItem3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Stat: TStat;
+
+implementation
+
+{$R *.dfm}
+
+uses MainU, SendSubpileU, GaranteU, SentpartU, TachnicianU;
+
+procedure TStat.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Release;
+end;
+
+procedure TStat.FormShow(Sender: TObject);
+begin
+   if Tachnician.DBText9.Caption = 'C' then
+     begin
+          W7TaskItem2.Enabled := False;
+          W7TaskItem3.Enabled := False;
+     end;
+
+
+end;
+
+procedure TStat.W7TaskItem1Click(Sender: TObject);
+begin
+
+            if IsFormOpen('Garante') = False  then
+                Application.CreateForm(TGarante,Garante);
+                Garante.ShowModal;
+
+end;
+
+procedure TStat.W7TaskItem2Click(Sender: TObject);
+begin
+  if IsFormOpen('SendSubpile') = False  then
+     Application.CreateForm(TSendSubpile,SendSubpile);
+     SendSubpile.ShowModal;
+end;
+
+procedure TStat.W7TaskItem3Click(Sender: TObject);
+begin
+     if IsFormOpen('Sentpart') = False  then
+     Application.CreateForm(TSentpart,Sentpart);
+     Sentpart.ShowModal;
+end;
+
+end.

@@ -1,0 +1,75 @@
+unit AppointU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxStyles, cxSchedulerStorage,
+  cxSchedulerCustomControls, cxSchedulerDateNavigator, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
+  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  cxContainer, cxEdit, cxTextEdit, cxMaskEdit, cxDropDownEdit, cxLookupEdit,
+  cxDBLookupEdit, cxDBLookupComboBox, cxDateNavigator, dxGDIPlusClasses,
+  Vcl.ExtCtrls, Vcl.StdCtrls, Data.DB, MemDS, DBAccess, MyAccess, Vcl.Menus,
+  cxButtons;
+
+type
+  TAppoint = class(TForm)
+    Panel1: TPanel;
+    Label1: TLabel;
+    Image1: TImage;
+    Image2: TImage;
+    cxDateNavigator1: TcxDateNavigator;
+    cxLookupComboBox1: TcxLookupComboBox;
+    Label2: TLabel;
+    Oapp: TMyQuery;
+    DataSource1: TDataSource;
+    cxButton1: TcxButton;
+    Label3: TLabel;
+    procedure Image1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cxLookupComboBox1PropertiesChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Appoint: TAppoint;
+
+implementation
+
+{$R *.dfm}
+
+uses datamodual;
+
+
+
+procedure TAppoint.cxLookupComboBox1PropertiesChange(Sender: TObject);
+begin
+label3.Caption := cxLookupComboBox1.EditValue;
+end;
+
+procedure TAppoint.FormShow(Sender: TObject);
+begin
+oapp.Open;
+end;
+
+procedure TAppoint.Image1Click(Sender: TObject);
+begin
+close;
+end;
+
+end.

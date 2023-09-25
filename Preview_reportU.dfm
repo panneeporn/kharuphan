@@ -1,0 +1,42 @@
+object Preview_report: TPreview_report
+  Left = 0
+  Top = 0
+  Caption = 'Preview_report'
+  ClientHeight = 600
+  ClientWidth = 800
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object frxPreview1: TfrxPreview
+    Left = 0
+    Top = 65
+    Width = 800
+    Height = 535
+    Align = alClient
+    BackColor = clCream
+    BevelInner = bvNone
+    BevelOuter = bvNone
+    BorderStyle = bsNone
+    OutlineVisible = False
+    OutlineWidth = 121
+    ThumbnailVisible = True
+    UseReportHints = True
+  end
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 800
+    Height = 65
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = 'Panel1'
+    TabOrder = 1
+  end
+end

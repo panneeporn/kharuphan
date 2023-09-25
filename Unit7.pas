@@ -1,0 +1,100 @@
+unit Unit7;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, MemDS, DBAccess, MyAccess,
+  Vcl.StdCtrls;
+
+type
+  TCreateLogin = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label3: TLabel;
+    Edit3: TEdit;
+    Label4: TLabel;
+    Label5: TLabel;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Label6: TLabel;
+    ComboBox1: TComboBox;
+    Button1: TButton;
+    MyQuery1: TMyQuery;
+    DataSource1: TDataSource;
+    Button2: TButton;
+    MyQuery2: TMyQuery;
+    procedure Edit1Enter(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CreateLogin: TCreateLogin;
+
+implementation
+
+{$R *.dfm}
+
+uses DatabasicU, datamodual;
+
+procedure TCreateLogin.Button1Click(Sender: TObject);
+begin
+MyQuery1.Close;
+MyQuery1.Open;
+MyQuery1.Append;
+MyQuery1.FieldByName('u_cid').AsString := Edit1.Text;
+MyQuery1.FieldByName('u_user').AsString := Edit2.Text;
+MyQuery1.FieldByName('u_pass').AsString := Edit3.Text;
+MyQuery1.FieldByName('u_fname').AsString := Edit4.Text;
+MyQuery1.FieldByName('u_lname').AsString := Edit5.Text;
+MyQuery1.FieldByName('u_pos').AsString := ComboBox1.Text;
+MyQuery1.Post;
+edit1.Clear;
+edit2.Clear;
+edit3.Clear;
+edit4.Clear;
+edit5.Clear;
+end;
+
+procedure TCreateLogin.Button2Click(Sender: TObject);
+begin
+
+MyQuery2.Close;
+MyQuery2.SQL.Text := 'select count(cid)as num  from login where u_cid = '+'"'+Edit1.Text+'"';
+MyQuery2.Open;
+
+if (MyQuery2.FieldByName('num').AsString = '0') then
+   begin
+      edit2.Text := edit1.Text
+
+   end;
+
+if (MyQuery2.FieldByName('num').AsString = '1') then
+   begin
+         ShowMessage('มีข้อมูลในระบบไม่สามารถดำเนินการต่อได้');
+   end;
+
+
+
+
+
+
+
+
+
+
+end;
+
+procedure TCreateLogin.Edit1Enter(Sender: TObject);
+begin
+edit2.Text := edit1.Text
+end;
+
+end.

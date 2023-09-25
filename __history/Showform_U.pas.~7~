@@ -1,0 +1,41 @@
+unit Showform_U;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, dxGDIPlusClasses, Vcl.ExtCtrls,
+  Vcl.Imaging.GIFImg, Vcl.StdCtrls;
+
+type
+  TShowform = class(TForm)
+    Image1: TImage;
+    Label1: TLabel;
+    Label2: TLabel;
+    Image2: TImage;
+    Image3: TImage;
+    Image4: TImage;
+    Timer1: TTimer;
+    procedure Timer1Timer(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Showform: TShowform;
+
+implementation
+
+{$R *.dfm}
+
+uses Login_U;
+
+procedure TShowform.Timer1Timer(Sender: TObject);
+begin
+   // Application.createform(TLoginform, Loginform);
+   // Loginform.showmodal;
+end;
+
+end.

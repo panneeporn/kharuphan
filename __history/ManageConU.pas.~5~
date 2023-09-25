@@ -1,0 +1,237 @@
+unit ManageConU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, dxSkinsCore, dxSkinBlack, dxSkinBlue, dxSkinBlueprint,
+  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  dxSkinscxPCPainter, dxBarBuiltInMenu, cxStyles, cxCustomData, cxFilter,
+  cxData, cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel,
+  cxClasses, cxGridCustomView, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxGrid, cxPC, MemDS, DBAccess, MyAccess, Vcl.ExtCtrls,
+  cxImageComboBox, Vcl.ImgList, dxGDIPlusClasses, Vcl.Menus, Vcl.StdCtrls,
+  cxButtons;
+
+type
+  TManage_Con = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    OPD: TMyQuery;
+    cxPageControl1: TcxPageControl;
+    cxTabSheet1: TcxTabSheet;
+    cxTabSheet2: TcxTabSheet;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid2DBTableView1: TcxGridDBTableView;
+    cxGrid2Level1: TcxGridLevel;
+    cxGrid2: TcxGrid;
+    DataSource1: TDataSource;
+    IPD: TMyQuery;
+    DataSource2: TDataSource;
+    cxGrid2DBTableView1fullname: TcxGridDBColumn;
+    cxGrid2DBTableView1hn: TcxGridDBColumn;
+    cxGrid2DBTableView1cid: TcxGridDBColumn;
+    cxGrid2DBTableView1vstdate: TcxGridDBColumn;
+    cxGrid2DBTableView1pttype: TcxGridDBColumn;
+    cxGrid2DBTableView1name: TcxGridDBColumn;
+    cxGrid2DBTableView1main_dep: TcxGridDBColumn;
+    cxGrid2DBTableView1department: TcxGridDBColumn;
+    cxGrid2DBTableView1hospmain: TcxGridDBColumn;
+    cxGrid2DBTableView1main_name: TcxGridDBColumn;
+    cxGrid2DBTableView1hospsub: TcxGridDBColumn;
+    cxGrid2DBTableView1sub_name: TcxGridDBColumn;
+    cxGrid2DBTableView1pdx: TcxGridDBColumn;
+    cxGrid2DBTableView1dx_doctor: TcxGridDBColumn;
+    cxGrid2DBTableView1income: TcxGridDBColumn;
+    cxGrid2DBTableView1paid_money: TcxGridDBColumn;
+    cxGrid2DBTableView1remain_money: TcxGridDBColumn;
+    cxGrid2DBTableView1uc_money: TcxGridDBColumn;
+    cxGrid2DBTableView1item_money: TcxGridDBColumn;
+    cxGrid2DBTableView1flag: TcxGridDBColumn;
+    cxGrid2DBTableView1regdate: TcxGridDBColumn;
+    cxGrid2DBTableView1dchdate: TcxGridDBColumn;
+    cxGrid2DBTableView1con_time: TcxGridDBColumn;
+    cxGrid2DBTableView1Column1: TcxGridDBColumn;
+    cxImageList1: TcxImageList;
+    cxGrid2DBTableView1state2: TcxGridDBColumn;
+    cxGrid2DBTableView1comment2: TcxGridDBColumn;
+    cxGrid2DBTableView1con_time2: TcxGridDBColumn;
+    cxGrid2DBTableView1serail_c: TcxGridDBColumn;
+    Image1: TImage;
+    cxGrid1DBTableView1fullname: TcxGridDBColumn;
+    cxGrid1DBTableView1hn: TcxGridDBColumn;
+    cxGrid1DBTableView1cid: TcxGridDBColumn;
+    cxGrid1DBTableView1vstdate: TcxGridDBColumn;
+    cxGrid1DBTableView1pttype: TcxGridDBColumn;
+    cxGrid1DBTableView1name: TcxGridDBColumn;
+    cxGrid1DBTableView1main_dep: TcxGridDBColumn;
+    cxGrid1DBTableView1department: TcxGridDBColumn;
+    cxGrid1DBTableView1ECLAIM_NO: TcxGridDBColumn;
+    cxGrid1DBTableView1HN_1: TcxGridDBColumn;
+    cxGrid1DBTableView1AN: TcxGridDBColumn;
+    cxGrid1DBTableView1DATEADM: TcxGridDBColumn;
+    cxGrid1DBTableView1hospmain: TcxGridDBColumn;
+    cxGrid1DBTableView1main_name: TcxGridDBColumn;
+    cxGrid1DBTableView1hospsub: TcxGridDBColumn;
+    cxGrid1DBTableView1sub_name: TcxGridDBColumn;
+    cxGrid1DBTableView1pdx: TcxGridDBColumn;
+    cxGrid1DBTableView1dx_doctor: TcxGridDBColumn;
+    cxGrid1DBTableView1income: TcxGridDBColumn;
+    cxGrid1DBTableView1paid_money: TcxGridDBColumn;
+    cxGrid1DBTableView1remain_money: TcxGridDBColumn;
+    cxGrid1DBTableView1uc_money: TcxGridDBColumn;
+    cxGrid1DBTableView1item_money: TcxGridDBColumn;
+    cxGrid1DBTableView1flag: TcxGridDBColumn;
+    cxGrid1DBTableView1con_time: TcxGridDBColumn;
+    cxGrid1DBTableView1state2: TcxGridDBColumn;
+    cxGrid1DBTableView1comment2: TcxGridDBColumn;
+    cxGrid1DBTableView1con_time2: TcxGridDBColumn;
+    cxGrid1DBTableView1serail_c: TcxGridDBColumn;
+    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    cxButton1: TcxButton;
+    Label1: TLabel;
+    procedure FormShow(Sender: TObject);
+    procedure cxGrid2DBTableView1Column1GetDisplayText(
+      Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      var AText: string);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure cxGrid1DBTableView1Column1GetDisplayText(
+      Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      var AText: string);
+    procedure cxButton1Click(Sender: TObject);
+    procedure cxGrid1DBTableView1CellClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+    procedure cxGrid2DBTableView1CellClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+    procedure cxGrid1DBTableView1CellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+    procedure cxGrid2DBTableView1CellDblClick(Sender: TcxCustomGridTableView;
+      ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
+      AShift: TShiftState; var AHandled: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Manage_Con: TManage_Con;
+
+implementation
+
+{$R *.dfm}
+
+uses datamodual, MainU, ManageCon_Add_ComU;
+
+procedure TManage_Con.cxButton1Click(Sender: TObject);
+begin
+OPD.Refresh;
+IPD.Refresh;
+end;
+
+procedure TManage_Con.cxGrid1DBTableView1CellClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+label1.Caption := 'OPD1';
+end;
+
+procedure TManage_Con.cxGrid1DBTableView1CellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+      if IsFormOpen('ManageCon_Add_C') = False  then
+     Application.CreateForm(TManageCon_Add_C,ManageCon_Add_C);
+     ManageCon_Add_C.ShowModal;
+
+end;
+
+procedure TManage_Con.cxGrid1DBTableView1Column1GetDisplayText(
+  Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+  var AText: string);
+var
+  Row: Integer;
+
+begin
+     Row := Sender.GridView.DataController.GetRowIndexByRecordIndex(ARecord.RecordIndex, False);
+
+  AText := IntToStr(Row+1);
+
+
+end;
+
+procedure TManage_Con.cxGrid2DBTableView1CellClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+label1.Caption := 'IPD1';
+end;
+
+procedure TManage_Con.cxGrid2DBTableView1CellDblClick(
+  Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo;
+  AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
+begin
+if IsFormOpen('ManageCon_Add_C') = False  then
+     Application.CreateForm(TManageCon_Add_C,ManageCon_Add_C);
+     ManageCon_Add_C.ShowModal;
+end;
+
+procedure TManage_Con.cxGrid2DBTableView1Column1GetDisplayText(
+  Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+  var AText: string);
+var
+  Row: Integer;
+
+begin
+     Row := Sender.GridView.DataController.GetRowIndexByRecordIndex(ARecord.RecordIndex, False);
+
+  AText := IntToStr(Row+1);
+
+
+end;
+
+procedure TManage_Con.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+MainForm.dxRibbon1.ShowTabGroups := true ;
+release;
+end;
+
+procedure TManage_Con.FormCreate(Sender: TObject);
+begin
+MainForm.dxRibbon1.ShowTabGroups := false ;
+end;
+
+procedure TManage_Con.FormShow(Sender: TObject);
+begin
+OPD.Open;
+IPD.Open;
+
+end;
+
+procedure TManage_Con.Image1Click(Sender: TObject);
+begin
+close;
+end;
+
+end.

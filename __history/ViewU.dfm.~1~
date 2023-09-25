@@ -1,0 +1,613 @@
+object View: TView
+  Left = 0
+  Top = 0
+  BorderStyle = bsNone
+  Caption = 'View'
+  ClientHeight = 420
+  ClientWidth = 487
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 487
+    Height = 49
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = 'View - Data'
+    Color = 9633939
+    FullRepaint = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindow
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Pitch = fpFixed
+    Font.Style = []
+    Font.Quality = fqClearTypeNatural
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+    ExplicitLeft = -95
+    ExplicitWidth = 582
+    DesignSize = (
+      487
+      49)
+    object Image1: TImage
+      Left = 454
+      Top = 0
+      Width = 33
+      Height = 35
+      Anchors = [akTop, akRight]
+      Picture.Data = {
+        0D546478536D617274496D61676589504E470D0A1A0A0000000D494844520000
+        0020000000200806000000737A7AF4000000017352474200AECE1CE900000004
+        67414D410000B18F0BFC61050000001974455874536F6674776172650041646F
+        626520496D616765526561647971C9653C0000001D744558745469746C650043
+        6C6F73653B457869743B426172733B526962626F6E3B4603B9E8000001204944
+        41545847CD96416E0231144339D848B43B4E85C4F1BA46EA15D820AE10BE51D2
+        7E7B5C864548BA7842766C3CD2C0C0AE9432156B8EC49A23B1E64856C6B22CFB
+        E02B289DF90EF6BA470244E8924ABDB9E81E09604A5DD13D12C0957AA27B2480
+        2B25CEC6539E66748F0470A5CAA99E9FC4CF6C66DA4E830470A5E0F1C629E306
+        5EC9C4D16F069000A674D64CCDE5011A4F99D5EDD00C09A085CA517335FB09FE
+        383BD62EA13912C0952AF6221CC84AF707CD9200AE94D8BC0864A443689E0470
+        25E1433B0D9C4976857648005712A65EC0D45B30F54338F56BF82F1E44531FC5
+        8DC7005EC5CF6C66DA4E830470A5C4D49FE32EE81E09E04A3DD13D122042572D
+        75E4AA7B2440840EC13BFE19DF8283EE919881354762CD9158731C657707DF02
+        79149611C4E60000000049454E44AE426082}
+      OnClick = Image1Click
+      ExplicitLeft = 430
+    end
+    object Label1: TLabel
+      Left = 368
+      Top = 15
+      Width = 46
+      Height = 19
+      Caption = 'Label1'
+      Visible = False
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 49
+    Width = 487
+    Height = 371
+    Align = alClient
+    Color = 16772351
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitTop = 41
+    object Label2: TLabel
+      Left = 69
+      Top = 6
+      Width = 75
+      Height = 26
+      Caption = #3623#3604#3611' '#3619#3633#3610#3648#3629#3585#3626#3634#3619
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 269
+      Top = 6
+      Width = 30
+      Height = 26
+      Caption = #3627#3617#3623#3604
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 21
+      Top = 38
+      Width = 57
+      Height = 26
+      Caption = #3592#3656#3634#3618#3592#3634#3585#3648#3591#3636#3609
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label12: TLabel
+      Left = 233
+      Top = 38
+      Width = 66
+      Height = 26
+      Caption = #3627#3617#3623#3604#3619#3634#3618#3585#3634#3619
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 21
+      Top = 70
+      Width = 114
+      Height = 26
+      Caption = #3613#3656#3634#3618' / '#3591#3634#3609#3607#3637#3656#3626#3656#3591#3627#3621#3633#3585#3600#3634#3609
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 269
+      Top = 70
+      Width = 66
+      Height = 26
+      Caption = #3648#3621#3586#3607#3637#3656#3627#3609#3633#3591#3626#3639#3629
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 21
+      Top = 102
+      Width = 36
+      Height = 26
+      Caption = #3621#3591#3623#3633#3609#3607#3637#3656
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 189
+      Top = 102
+      Width = 66
+      Height = 26
+      Caption = #3619#3634#3618#3585#3634#3619#3610#3619#3636#3625#3633#3607
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 21
+      Top = 134
+      Width = 58
+      Height = 26
+      Caption = #3619#3633#3610#3627#3621#3633#3585#3600#3634#3609
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 199
+      Top = 134
+      Width = 124
+      Height = 26
+      Caption = #3651#3610#3626#3656#3591#3586#3629#3591' / '#3651#3610#3648#3626#3619#3655#3592#3648#3621#3586#3607#3637#3656
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -19
+      Font.Name = 'AngsanaUPC'
+      Font.Style = []
+      ParentFont = False
+    end
+    object Panel3: TPanel
+      Left = 1
+      Top = 176
+      Width = 485
+      Height = 194
+      Align = alBottom
+      BevelOuter = bvNone
+      Color = 16764671
+      ParentBackground = False
+      TabOrder = 0
+      ExplicitLeft = 2
+      ExplicitTop = 166
+      object Label11: TLabel
+        Left = 22
+        Top = 14
+        Width = 55
+        Height = 26
+        Caption = #3623#3604#3611'.'#3607#3637#3656#3592#3656#3634#3618
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'AngsanaUPC'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        Font.Quality = fqClearTypeNatural
+        ParentFont = False
+      end
+      object Label16: TLabel
+        Left = 237
+        Top = 46
+        Width = 60
+        Height = 26
+        Caption = #3627#3633#3585#3616#3634#3625#3637' ...%'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'AngsanaUPC'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        Font.Quality = fqClearTypeNatural
+        ParentFont = False
+      end
+      object Label13: TLabel
+        Left = 22
+        Top = 46
+        Width = 89
+        Height = 26
+        Caption = #3618#3629#3604#3648#3591#3636#3609#3607#3637#3656#3592#3656#3634#3618#3592#3619#3636#3591
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'AngsanaUPC'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        Font.Quality = fqClearTypeNatural
+        ParentFont = False
+      end
+      object Label19: TLabel
+        Left = 22
+        Top = 78
+        Width = 61
+        Height = 26
+        Caption = #3618#3629#3604#3627#3633#3585#3616#3634#3625#3637
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'AngsanaUPC'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        Font.Quality = fqClearTypeNatural
+        ParentFont = False
+      end
+      object Label28: TLabel
+        Left = 220
+        Top = 78
+        Width = 102
+        Height = 26
+        Caption = #3618#3629#3604#3648#3591#3636#3609#3627#3621#3633#3591#3627#3633#3585#3616#3634#3625#3637
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'AngsanaUPC'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        Font.Quality = fqClearTypeNatural
+        ParentFont = False
+      end
+      object Label23: TLabel
+        Left = 220
+        Top = 119
+        Width = 42
+        Height = 26
+        Caption = #3612#3641#3657#3619#3633#3610#3648#3594#3655#3588
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'AngsanaUPC'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        Font.Quality = fqClearTypeNatural
+        ParentFont = False
+      end
+      object Label22: TLabel
+        Left = 22
+        Top = 119
+        Width = 47
+        Height = 26
+        Caption = #3648#3621#3586#3607#3637#3656#3648#3594#3655#3588
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -19
+        Font.Name = 'AngsanaUPC'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        Font.Quality = fqClearTypeNatural
+        ParentFont = False
+      end
+      object cxDBLabel11: TcxDBLabel
+        Left = 83
+        Top = 19
+        DataBinding.DataSource = DataSource1
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clOlive
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        Height = 21
+        Width = 148
+      end
+      object cxDBLabel12: TcxDBLabel
+        Left = 117
+        Top = 51
+        DataBinding.DataField = 'pay_true'
+        DataBinding.DataSource = DataSource1
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clOlive
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        Height = 21
+        Width = 113
+      end
+      object cxDBLabel13: TcxDBLabel
+        Left = 304
+        Top = 51
+        DataBinding.DataField = 'tax'
+        DataBinding.DataSource = DataSource1
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clOlive
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        Height = 21
+        Width = 137
+      end
+      object cxDBLabel14: TcxDBLabel
+        Left = 92
+        Top = 83
+        DataBinding.DataField = 'cost_tax'
+        DataBinding.DataSource = DataSource1
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clOlive
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        Height = 21
+        Width = 122
+      end
+      object cxDBLabel15: TcxDBLabel
+        Left = 328
+        Top = 83
+        DataBinding.DataSource = DataSource1
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clOlive
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        Height = 21
+        Width = 144
+      end
+      object cxDBLabel16: TcxDBLabel
+        Left = 75
+        Top = 124
+        DataBinding.DataField = 'num_check'
+        DataBinding.DataSource = DataSource1
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clOlive
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        Height = 21
+        Width = 134
+      end
+      object cxDBLabel17: TcxDBLabel
+        Left = 268
+        Top = 124
+        DataBinding.DataField = 'company_check'
+        DataBinding.DataSource = DataSource1
+        ParentFont = False
+        Style.Font.Charset = DEFAULT_CHARSET
+        Style.Font.Color = clOlive
+        Style.Font.Height = -11
+        Style.Font.Name = 'Tahoma'
+        Style.Font.Style = []
+        Style.IsFontAssigned = True
+        Height = 21
+        Width = 204
+      end
+    end
+    object cxDBLabel1: TcxDBLabel
+      Left = 150
+      Top = 11
+      DataBinding.DataField = 'acc_date'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 113
+    end
+    object cxDBLabel2: TcxDBLabel
+      Left = 305
+      Top = 11
+      DataBinding.DataField = 't_pay'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 168
+    end
+    object cxDBLabel3: TcxDBLabel
+      Left = 84
+      Top = 43
+      DataBinding.DataField = 't_monny'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 143
+    end
+    object cxDBLabel4: TcxDBLabel
+      Left = 305
+      Top = 43
+      DataBinding.DataField = 'item'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 168
+    end
+    object cxDBLabel5: TcxDBLabel
+      Left = 141
+      Top = 75
+      DataBinding.DataField = 'depart'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 122
+    end
+    object cxDBLabel6: TcxDBLabel
+      Left = 341
+      Top = 75
+      DataBinding.DataField = 'numbook'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 132
+    end
+    object cxDBLabel7: TcxDBLabel
+      Left = 63
+      Top = 107
+      DataBinding.DataField = 'input_date'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 120
+    end
+    object cxDBLabel8: TcxDBLabel
+      Left = 261
+      Top = 107
+      DataBinding.DataField = 'company'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 212
+    end
+    object cxDBLabel9: TcxDBLabel
+      Left = 85
+      Top = 139
+      DataBinding.DataField = 'evidence'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 113
+    end
+    object cxDBLabel10: TcxDBLabel
+      Left = 329
+      Top = 139
+      DataBinding.DataField = 'receipt_num'
+      DataBinding.DataSource = DataSource1
+      ParentFont = False
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clOlive
+      Style.Font.Height = -11
+      Style.Font.Name = 'Tahoma'
+      Style.Font.Style = []
+      Style.IsFontAssigned = True
+      Height = 21
+      Width = 144
+    end
+  end
+  object View: TMyQuery
+    Connection = DataModule1.MyConnection1
+    SQL.Strings = (
+      'SELECT * FROM memo me'
+      'LEFT JOIN tpay ON me.tpay = tpay.id'
+      'LEFT JOIN tmonny ON me.tmonny = tmonny.id'
+      'LEFT JOIN department ON me.department = department.id'
+      'LEFT JOIN company ON me.company = company.id'
+      'LEFT JOIN bank ON me.bank = bank.id'
+      'LEFT JOIN yesno ON me.pay_status = yesno.yesno'
+      'LEFT JOIN yesno yes ON me.month_status = yes.yesno'
+      'LEFT JOIN company com ON me.company_check = com.id'
+      'LEFT JOIN item ON me.item = item.id')
+    Left = 32
+    Top = 8
+  end
+  object DataSource1: TDataSource
+    DataSet = View
+    Left = 88
+    Top = 8
+  end
+end

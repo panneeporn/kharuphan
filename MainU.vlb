@@ -1,0 +1,13 @@
+﻿[dxSkinController1]
+Coordinates=0,0,116,36
+
+[dxRibbon1]
+Coordinates=152,56,76,36
+Visible=True
+
+[dxBarManager1]
+Coordinates=259,111,106,36
+
+[]
+Coordinates=10,10,164,36
+

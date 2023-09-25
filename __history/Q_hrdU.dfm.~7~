@@ -1,0 +1,209 @@
+object Q_HRD: TQ_HRD
+  Left = 0
+  Top = 0
+  Caption = 'Q-HRD'
+  ClientHeight = 469
+  ClientWidth = 920
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 920
+    Height = 65
+    Align = alTop
+    BevelOuter = bvNone
+    Caption = #3619#3634#3618#3594#3639#3656#3629#3612#3641#3657#3619#3629#3610#3633#3609#3607#3638#3585#3648#3586#3657#3634#3626#3641#3656#3619#3632#3610#3610
+    Color = 16688638
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -52
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentFont = False
+    TabOrder = 0
+    ExplicitWidth = 720
+    DesignSize = (
+      920
+      65)
+    object Image1: TImage
+      Left = 887
+      Top = 0
+      Width = 33
+      Height = 36
+      Anchors = [akTop, akRight]
+      Picture.Data = {
+        0D546478536D617274496D61676589504E470D0A1A0A0000000D494844520000
+        0020000000200806000000737A7AF40000000467414D410000B18F0BFC610500
+        00001974455874536F6674776172650041646F626520496D6167655265616479
+        71C9653C00000023744558745469746C650043616E63656C3B53746F703B4578
+        69743B426172733B526962626F6E3B4C9696B200000166494441545847CD9731
+        5203310C457382541C670BA8E872060EC01998A1CB6D685372070ABA745C21AD
+        D1CB443BBBE6DBAB654244F126195BFAFAB165EF66534A49450EDE92F1CB300C
+        4B6C8D9DB1370EC6D1385DE03B63CC1143ACD2185963E0CE7836DE8D12845872
+        C8559A61038FC69BA18A4420178D1FDA11034FC6A7A184D780065A33FD250324
+        7C194AF037A03533D133C0925DE397D7A0396E47CB004DD3DBF30F3156D38B41
+        FBDC982D0374AE4A845783183ED53C4462A8210D70765B47CD851D55201203D4
+        D82A035C202A81259D0A3BD3027571A7B51D3B65805B4C05C38B518BC3C30535
+        478ED282BD32C055AA829D960945AF381C9401EE73153C256262A9381C95011E
+        2A2AB8E6DEA88B3ACCA99C9AD3BF3490BE05E94D987E0CD32FA2F4AB18521F46
+        90FE3886D4171227F595CC21E11A2B81C6AC38440C004BD6EB8925C81D977D4A
+        D400D034746EEB882A8825E7DC708A35069CBFFD6B96851CBC1D65F30D0DD8DA
+        4BC24765140000000049454E44AE426082}
+      OnClick = Image1Click
+      ExplicitLeft = 687
+    end
+  end
+  object cxGrid1: TcxGrid
+    Left = 0
+    Top = 65
+    Width = 920
+    Height = 383
+    Align = alClient
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+    LookAndFeel.SkinName = 'VS2010'
+    ExplicitWidth = 720
+    ExplicitHeight = 403
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      Navigator.Buttons.CustomButtons = <>
+      DataController.DataSource = DataSource1
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      OptionsData.Deleting = False
+      OptionsData.DeletingConfirmation = False
+      OptionsData.Editing = False
+      OptionsData.Inserting = False
+      OptionsView.GroupByBox = False
+      object cxGrid1DBTableView1Column1: TcxGridDBColumn
+        Caption = 'NO::'
+        OnGetDisplayText = cxGrid1DBTableView1Column1GetDisplayText
+        Width = 51
+      end
+      object cxGrid1DBTableView1Column2: TcxGridDBColumn
+        Caption = 'Q - ID'
+        DataBinding.FieldName = 'h_id'
+        FooterAlignmentHorz = taCenter
+        GroupSummaryAlignment = taCenter
+        HeaderAlignmentHorz = taCenter
+      end
+      object cxGrid1DBTableView1h_name: TcxGridDBColumn
+        Caption = #3594#3639#3656#3629' - '#3609#3634#3617#3626#3585#3640#3621
+        DataBinding.FieldName = 'h_name'
+        HeaderAlignmentHorz = taCenter
+        Width = 171
+      end
+      object cxGrid1DBTableView1h_course: TcxGridDBColumn
+        Caption = #3627#3633#3623#3648#3619#3639#3656#3629#3591
+        DataBinding.FieldName = 'h_course'
+        HeaderAlignmentHorz = taCenter
+        Width = 313
+      end
+      object cxGrid1DBTableView1h_numbook: TcxGridDBColumn
+        Caption = #3648#3621#3586#3627#3609#3633#3591#3626#3639#3629
+        DataBinding.FieldName = 'h_numbook'
+        HeaderAlignmentHorz = taCenter
+        Width = 133
+      end
+      object cxGrid1DBTableView1h_join: TcxGridDBColumn
+        Caption = #3619#3641#3611#3649#3610#3610
+        DataBinding.FieldName = 'h_join'
+        HeaderAlignmentHorz = taCenter
+        Width = 62
+      end
+      object cxGrid1DBTableView1h_datebegin: TcxGridDBColumn
+        Caption = #3623#3633#3609#3648#3604#3636#3609#3607#3634#3591
+        DataBinding.FieldName = 'h_datebegin'
+        HeaderAlignmentHorz = taCenter
+        Width = 77
+      end
+      object cxGrid1DBTableView1h_dateend: TcxGridDBColumn
+        Caption = #3623#3633#3609#3626#3636#3657#3609#3626#3640#3604
+        DataBinding.FieldName = 'h_dateend'
+        HeaderAlignmentHorz = taCenter
+        Width = 72
+      end
+      object cxGrid1DBTableView1h_organizer: TcxGridDBColumn
+        Caption = #3612#3641#3657#3592#3633#3604
+        DataBinding.FieldName = 'h_organizer'
+        HeaderAlignmentHorz = taCenter
+        Width = 236
+      end
+      object cxGrid1DBTableView1h_station: TcxGridDBColumn
+        Caption = #3626#3606#3634#3609#3607#3637#3656
+        DataBinding.FieldName = 'h_station'
+        HeaderAlignmentHorz = taCenter
+        Width = 246
+      end
+      object cxGrid1DBTableView1h_changwat: TcxGridDBColumn
+        Caption = #3592#3633#3591#3627#3623#3633#3604
+        DataBinding.FieldName = 'h_changwat'
+        HeaderAlignmentHorz = taCenter
+        Width = 89
+      end
+      object cxGrid1DBTableView1h_pat_monny: TcxGridDBColumn
+        Caption = #3619#3641#3611#3649#3610#3610#3585#3634#3619#3648#3610#3636#3585#3592#3656#3634#3618
+        DataBinding.FieldName = 'h_pat_monny'
+        HeaderAlignmentHorz = taCenter
+        Width = 105
+      end
+      object cxGrid1DBTableView1h_serail: TcxGridDBColumn
+        Caption = #3619#3627#3633#3626#3605#3619#3623#3592#3626#3629#3610#3586#3657#3629#3617#3641#3621
+        DataBinding.FieldName = 'h_serail'
+        HeaderAlignmentHorz = taCenter
+        Width = 130
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 448
+    Width = 920
+    Height = 21
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 2
+    object cxDBLabel1: TcxDBLabel
+      Left = 96
+      Top = 0
+      DataBinding.DataField = 'h_id'
+      DataBinding.DataSource = DataSource1
+      Visible = False
+      Height = 21
+      Width = 121
+    end
+  end
+  object MyQuery1: TMyQuery
+    Connection = DataModule1.gxsoft
+    SQL.Strings = (
+      'select * from write_hrd '
+      'where h_check='#39'N'#39' order by h_id desc')
+    Left = 528
+    Top = 176
+  end
+  object DataSource1: TDataSource
+    DataSet = MyQuery1
+    Left = 576
+    Top = 176
+  end
+end

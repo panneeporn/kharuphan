@@ -1,0 +1,77 @@
+unit Main_t_summaryU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxLookAndFeels,
+  cxLookAndFeelPainters, Vcl.Menus, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  cxControls, cxContainer, cxEdit, Data.DB, MemDS, DBAccess, MyAccess, cxLabel,
+  cxDBLabel, Vcl.Mask, Vcl.DBCtrls, Vcl.StdCtrls, cxButtons;
+
+type
+  TMaintanance_summary = class(TForm)
+    Label1: TLabel;
+    cxButton1: TcxButton;
+    Edit1: TEdit;
+    DBEdit1: TDBEdit;
+    cxDBLabel1: TcxDBLabel;
+    MyQuery1: TMyQuery;
+    MyQuery2: TMyQuery;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Maintanance_summary: TMaintanance_summary;
+  Date3 : TDateTime;
+
+implementation
+
+{$R *.dfm}
+uses TachnicianU, datamodual;
+
+procedure TMaintanance_summary.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Release;
+end;
+
+procedure TMaintanance_summary.FormShow(Sender: TObject);
+
+begin
+MyQuery1.Open;
+Date3 := MyQuery1.FieldByName('now()').AsDateTime;
+
+
+DBEdit1.Enabled := False ;
+   if Tachnician.edit1.Text = '1' then
+       begin
+             Edit1.Text := 'ช่าง ::'
+       end;
+    if Tachnician.edit1.Text = '2' then
+       begin
+             Edit1.Text := 'พัสดุ ::'
+       end;
+
+
+end;
+
+end;
+
+end.

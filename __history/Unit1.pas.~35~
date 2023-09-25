@@ -1,0 +1,89 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, MemDS, DBAccess,
+  MyAccess, DADump, MyDump, AbBase, AbBrowse, AbZBrows, AbZipper, AbUnzper;
+
+type
+  TForm1 = class(TForm)
+    MyDump1: TMyDump;
+    MyQuery1: TMyQuery;
+    MyQuery1Tables_in_gxsoft: TStringField;
+    Button1: TButton;
+    MyConnection1: TMyConnection;
+    AbZipper1: TAbZipper;
+    Button2: TButton;
+    MyConnection2: TMyConnection;
+    MyDump2: TMyDump;
+    AbUnZipper1: TAbUnZipper;
+    procedure Button1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+uses datamodual;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  I : integer;
+  FolderName : String;
+begin
+//MyQuery1.First;
+  FolderName := ExtractFilePath('c:\Backup\');
+for I := 0 to MyQuery1.RecordCount do
+  begin
+  MyDump1.TableNames := MyQuery1.FieldByName('Tables_in_gxsoft').AsString;
+  MyDump1.BackupToFile('c:\Backup\'+MyQuery1.FieldByName(
+     'Tables_in_gxsoft').AsString+'.sql');
+     MyQuery1.Next ;
+  end;
+ with AbZipper1 do begin
+       AutoSave := true;
+      // CxMemo1.Lines.Add(FolderName + 'MyPOS'+ FormatDateTime('yymmddhhmmss',now)+ '.zip');
+       FileName := FolderName + 'GxSoft'+ FormatDateTime('yymmddhhmmss',now)+
+          '.zip';
+       BaseDirectory :=FolderName;
+       openarchive(FileName);
+       AddFiles('*.sql',0);
+       CloseArchive;
+    end;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  I : Integer;
+begin
+   AbUnZipper1.FileName := 'c:\Backup\GxSoft150714202827.zip';
+   AbUnZipper1.ExtractFiles('*.*');
+for I := 0 to MyQuery1.RecordCount do
+  begin
+  MyQuery1.Open;
+  MyDump2.RestoreFromFile('c:\Backup\'+MyQuery1.FieldByName(
+     'Tables_in_gxsoft').AsString+
+     '.sql');
+     MyQuery1.Next;
+  end;
+
+
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+MyQuery1.Open;
+end;
+
+end.

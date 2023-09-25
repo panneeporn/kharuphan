@@ -1,0 +1,39 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 239
+  Width = 331
+  object gxsoft: TMyConnection
+    Database = 'gxsoft'
+    Options.Charset = 'tis620'
+    Username = 'sa'
+    Server = '223.25.192.134'
+    Connected = True
+    LoginPrompt = False
+    Left = 80
+    Top = 72
+    EncryptedPassword = 'C7FFCDFF9EFFCDFF87FFC8FF8BFF8BFF'
+  end
+  object hosxp: TMyConnection
+    Database = 'dshos'
+    Options.Charset = 'tis620'
+    Username = 'sa'
+    Server = '223.25.192.134'
+    Connected = True
+    LoginPrompt = False
+    Left = 184
+    Top = 72
+    EncryptedPassword = 'C7FFCDFF9EFFCDFF87FFC8FF8BFF8BFF'
+  end
+  object eclaimdb: TMyConnection
+    Database = 'eclaimdb'
+    Options.Charset = 'tis620'
+    Username = 'sa'
+    Server = '223.25.192.134'
+    Connected = True
+    LoginPrompt = False
+    Left = 136
+    Top = 72
+    EncryptedPassword = 'C7FFCDFF9EFFCDFF87FFC8FF8BFF8BFF'
+  end
+end

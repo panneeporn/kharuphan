@@ -1,0 +1,566 @@
+unit AccessU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
+  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  cxTextEdit, cxCheckBox, dxGDIPlusClasses, Vcl.ExtCtrls, Vcl.Menus, Data.DB,
+  MemDS, DBAccess, MyAccess, Vcl.StdCtrls, cxButtons, cxMaskEdit,
+  cxDropDownEdit, cxLookupEdit, cxDBLookupEdit, cxDBLookupComboBox;
+
+type
+  TAccess = class(TForm)
+    Panel1: TPanel;
+    Image1: TImage;
+    Image2: TImage;
+    cxTextEdit1: TcxTextEdit;
+    Panel2: TPanel;
+    cxCheckBox3: TcxCheckBox;
+    cxCheckBox8: TcxCheckBox;
+    cxCheckBox7: TcxCheckBox;
+    cxCheckBox6: TcxCheckBox;
+    cxCheckBox5: TcxCheckBox;
+    cxCheckBox4: TcxCheckBox;
+    cxCheckBox2: TcxCheckBox;
+    cxCheckBox1: TcxCheckBox;
+    Panel3: TPanel;
+    cxCheckBox9: TcxCheckBox;
+    cxCheckBox10: TcxCheckBox;
+    cxCheckBox11: TcxCheckBox;
+    cxCheckBox12: TcxCheckBox;
+    cxCheckBox13: TcxCheckBox;
+    cxCheckBox14: TcxCheckBox;
+    cxCheckBox15: TcxCheckBox;
+    cxCheckBox16: TcxCheckBox;
+    cxCheckBox17: TcxCheckBox;
+    Panel4: TPanel;
+    cxLookupComboBox1: TcxLookupComboBox;
+    cxButton1: TcxButton;
+    cxButton2: TcxButton;
+    Panel5: TPanel;
+    cxTextEdit2: TcxTextEdit;
+    MyQuery1: TMyQuery;
+    DataSource1: TDataSource;
+    cxTextEdit3: TcxTextEdit;
+    MyQuery2: TMyQuery;
+    MyQuery3: TMyQuery;
+    MyQuery4: TMyQuery;
+    Panel6: TPanel;
+    cxCheckBox51: TcxCheckBox;
+    cxCheckBox52: TcxCheckBox;
+    cxCheckBox53: TcxCheckBox;
+    cxCheckBox54: TcxCheckBox;
+    cxCheckBox55: TcxCheckBox;
+    cxCheckBox56: TcxCheckBox;
+    cxCheckBox18: TcxCheckBox;
+    cxCheckBox19: TcxCheckBox;
+    procedure cxCheckBox1Click(Sender: TObject);
+    procedure Image1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure cxCheckBox2Click(Sender: TObject);
+    procedure cxCheckBox3Click(Sender: TObject);
+    procedure cxCheckBox4Click(Sender: TObject);
+    procedure cxCheckBox5Click(Sender: TObject);
+    procedure cxCheckBox6Click(Sender: TObject);
+    procedure cxCheckBox7Click(Sender: TObject);
+    procedure cxCheckBox8Click(Sender: TObject);
+    procedure cxCheckBox9Click(Sender: TObject);
+    procedure cxCheckBox10Click(Sender: TObject);
+    procedure cxCheckBox11Click(Sender: TObject);
+    procedure cxCheckBox12Click(Sender: TObject);
+    procedure cxCheckBox13Click(Sender: TObject);
+    procedure cxCheckBox14Click(Sender: TObject);
+    procedure cxCheckBox15Click(Sender: TObject);
+    procedure cxCheckBox16Click(Sender: TObject);
+    procedure cxCheckBox17Click(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cxButton2Click(Sender: TObject);
+    procedure cxCheckBox51Click(Sender: TObject);
+    procedure cxCheckBox56Click(Sender: TObject);
+    procedure cxCheckBox52Click(Sender: TObject);
+    procedure cxCheckBox53Click(Sender: TObject);
+    procedure cxCheckBox54Click(Sender: TObject);
+    procedure cxCheckBox55Click(Sender: TObject);
+    procedure cxCheckBox18Click(Sender: TObject);
+    procedure cxCheckBox19Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Access: TAccess;
+
+implementation
+
+{$R *.dfm}
+
+uses MainU, datamodual;
+
+procedure TAccess.cxButton1Click(Sender: TObject);
+var
+  I: Integer;
+  num : string;
+begin
+ cxTextEdit2.Clear;
+ cxTextEdit2.Text := cxLookupComboBox1.EditValue;
+ MyQuery2.Close;
+ MyQuery2.SQL.Text := 'select u_access from login where u_cid = '+'"'+cxTextEdit2.Text+'"';
+ MyQuery2.open;
+ cxTextEdit3.Clear;
+ cxTextEdit3.Text := MyQuery2.FieldByName('u_access').AsString;
+ /////status/////
+ cxCheckBox1.Checked := false;
+ cxCheckBox2.Checked := false;
+ cxCheckBox3.Checked := false;
+ cxCheckBox4.Checked := false;
+ cxCheckBox5.Checked := false;
+ cxCheckBox6.Checked := false;
+ cxCheckBox7.Checked := false;
+ cxCheckBox8.Checked := false;
+ cxCheckBox9.Checked := false;
+ cxCheckBox10.Checked := false;
+ cxCheckBox11.Checked := false;
+ cxCheckBox12.Checked := false;
+ cxCheckBox13.Checked := false;
+ cxCheckBox14.Checked := false;
+ cxCheckBox15.Checked := false;
+ cxCheckBox16.Checked := false;
+ cxCheckBox17.Checked := false;
+ cxCheckBox18.Checked := false;
+ cxCheckBox19.Checked := false;
+
+ cxCheckBox51.Checked := false;
+ cxCheckBox52.Checked := false;
+ cxCheckBox53.Checked := false;
+ cxCheckBox54.Checked := false;
+ cxCheckBox55.Checked := false;
+ cxCheckBox56.Checked := false;
+
+ for I := 11 to 100 do
+   begin
+      MyQuery3.Close;
+      MyQuery3.SQL.Text := 'select count(u_cid)as cid from login where u_cid = '+'"'+cxTextEdit2.Text+'"'+' and u_access like '+'"%'+inttostr(I)+'%"';
+      MyQuery3.Open;
+      num := MyQuery3.FieldByName('cid').AsString;
+      if num = '1' then
+        begin
+           if I = 11 then
+              cxCheckBox1.Checked := true;
+           if I = 12 then
+              cxCheckBox2.Checked := true;
+           if I = 13 then
+              cxCheckBox3.Checked := true;
+           if I = 14 then
+              cxCheckBox4.Checked := true;
+           if I = 15 then
+              cxCheckBox5.Checked := true;
+           if I = 16 then
+              cxCheckBox6.Checked := true;
+           if I = 17 then
+              cxCheckBox7.Checked := true;
+           if I = 18 then
+              cxCheckBox8.Checked := true;
+           if I = 19 then
+              cxCheckBox9.Checked := true;
+           if I = 20 then
+              cxCheckBox10.Checked := true;
+           if I = 21 then
+              cxCheckBox11.Checked := true;
+           if I = 22 then
+              cxCheckBox12.Checked := true;
+           if I = 23 then
+              cxCheckBox13.Checked := true;
+           if I = 24 then
+              cxCheckBox14.Checked := true;
+           if I = 25 then
+              cxCheckBox15.Checked := true;
+           if I = 26 then
+              cxCheckBox16.Checked := true;
+           if I = 27 then
+              cxCheckBox17.Checked := true;
+
+           if I = 28 then
+              cxCheckBox18.Checked := true;
+           if I = 29 then
+              cxCheckBox19.Checked := true;
+
+           if I = 61 then
+              cxCheckBox51.Checked := true;
+           if I = 62 then
+              cxCheckBox52.Checked := true;
+           if I = 63 then
+              cxCheckBox53.Checked := true;
+           if I = 64 then
+              cxCheckBox54.Checked := true;
+           if I = 65 then
+              cxCheckBox55.Checked := true;
+           if I = 66 then
+              cxCheckBox56.Checked := true;
+
+        end;
+
+
+   end;
+
+
+
+
+
+
+
+
+end;
+
+procedure TAccess.cxButton2Click(Sender: TObject);
+begin
+    MyQuery4.Close;
+    MyQuery4.SQL.Text := 'update login set u_access = '+'"'+cxTextEdit1.Text+'"'+' where u_cid = '+'"'+cxTextEdit2.Text+'"';
+    MyQuery4.Execute;
+    MyQuery4.Close;
+    MyQuery4.SQL.Text := 'select u_access from login where u_cid = '+'"'+cxTextEdit2.Text+'"';
+    MyQuery4.Open;
+    cxTextEdit3.Clear;
+    cxTextEdit3.Text := MyQuery4.FieldByName('u_access').AsString;
+end;
+
+procedure TAccess.cxCheckBox10Click(Sender: TObject);
+begin
+if cxCheckBox10.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[20]';
+          end;
+      if cxCheckBox10.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[20]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox11Click(Sender: TObject);
+begin
+if cxCheckBox11.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[21]';
+          end;
+      if cxCheckBox11.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[21]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox12Click(Sender: TObject);
+begin
+if cxCheckBox12.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[22]';
+          end;
+      if cxCheckBox12.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[22]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox13Click(Sender: TObject);
+begin
+if cxCheckBox13.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[23]';
+          end;
+      if cxCheckBox13.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[23]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox14Click(Sender: TObject);
+begin
+if cxCheckBox14.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[24]';
+          end;
+      if cxCheckBox14.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[24]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox15Click(Sender: TObject);
+begin
+if cxCheckBox15.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[25]';
+          end;
+      if cxCheckBox15.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[25]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox16Click(Sender: TObject);
+begin
+if cxCheckBox16.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[26]';
+          end;
+      if cxCheckBox16.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[26]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox17Click(Sender: TObject);
+begin
+if cxCheckBox17.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[27]';
+          end;
+      if cxCheckBox17.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[27]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox1Click(Sender: TObject);
+begin
+   if cxCheckBox1.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[11]';
+          end;
+      if cxCheckBox1.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[11]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+
+end;
+
+procedure TAccess.cxCheckBox51Click(Sender: TObject);
+begin
+if cxCheckBox51.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[61]';
+          end;
+      if cxCheckBox51.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[61]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox52Click(Sender: TObject);
+begin
+if cxCheckBox52.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[62]';
+          end;
+      if cxCheckBox52.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[62]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox53Click(Sender: TObject);
+begin
+if cxCheckBox53.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[63]';
+          end;
+      if cxCheckBox53.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[63]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox54Click(Sender: TObject);
+begin
+if cxCheckBox54.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[64]';
+          end;
+      if cxCheckBox54.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[64]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox55Click(Sender: TObject);
+begin
+if cxCheckBox55.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[65]';
+          end;
+      if cxCheckBox55.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[65]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox56Click(Sender: TObject);
+begin
+if cxCheckBox56.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[66]';
+          end;
+      if cxCheckBox56.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[66]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox18Click(Sender: TObject);
+begin
+if cxCheckBox18.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[28]';
+          end;
+      if cxCheckBox18.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[28]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox19Click(Sender: TObject);
+begin
+if cxCheckBox19.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[29]';
+          end;
+      if cxCheckBox19.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[29]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox2Click(Sender: TObject);
+begin
+if cxCheckBox2.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[12]';
+          end;
+      if cxCheckBox2.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[12]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox3Click(Sender: TObject);
+begin
+if cxCheckBox3.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[13]';
+          end;
+      if cxCheckBox3.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[13]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox4Click(Sender: TObject);
+begin
+if cxCheckBox4.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[14]';
+          end;
+      if cxCheckBox4.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[14]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox5Click(Sender: TObject);
+begin
+if cxCheckBox5.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[15]';
+          end;
+      if cxCheckBox5.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[15]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox6Click(Sender: TObject);
+begin
+if cxCheckBox6.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[16]';
+          end;
+      if cxCheckBox6.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[16]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox7Click(Sender: TObject);
+begin
+if cxCheckBox7.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[17]';
+          end;
+      if cxCheckBox7.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[17]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox8Click(Sender: TObject);
+begin
+if cxCheckBox8.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[18]';
+          end;
+      if cxCheckBox8.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[18]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.cxCheckBox9Click(Sender: TObject);
+begin
+if cxCheckBox9.Checked = true then
+          begin
+            cxTextEdit1.Text :=  cxTextEdit1.Text+'[19]';
+          end;
+      if cxCheckBox9.Checked = False then
+          begin
+            cxTextEdit1.Text :=  StringReplace(cxTextEdit1.Text,'[19]','',[rfReplaceAll,rfIgnoreCase]);
+          end;
+end;
+
+procedure TAccess.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+MainForm.dxRibbon1.ShowTabGroups := true ;
+release;
+end;
+
+procedure TAccess.FormCreate(Sender: TObject);
+begin
+MainForm.dxRibbon1.ShowTabGroups := false ;
+end;
+
+procedure TAccess.FormShow(Sender: TObject);
+begin
+ MyQuery1.Open;
+end;
+
+procedure TAccess.Image1Click(Sender: TObject);
+begin
+close;
+end;
+
+end.

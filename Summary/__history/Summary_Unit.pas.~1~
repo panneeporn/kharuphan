@@ -1,0 +1,200 @@
+unit Summary_Unit;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, cxGraphics, cxLookAndFeels, cxLookAndFeelPainters, Menus,
+  dxSkinsCore, dxSkinsDefaultPainters, StdCtrls, cxButtons, GIFImg, ExtCtrls,
+  JvExExtCtrls, JvImage, cxControls, cxContainer, cxEdit, cxMaskEdit, cxTextEdit,
+  Grids, DBGrids, JvExDBGrids, JvDBGrid, Mask, JvExMask, JvToolEdit, JvMaskEdit,
+  JvCheckedMaskEdit, JvDatePickerEdit, DB, MemDS, DBAccess, MyAccess, DBCtrls,
+  cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData, cxDataStorage,
+  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxNavigator, dxSkinBlack,
+  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
+  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
+  dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue;
+
+type
+  TSummary = class(TForm)
+    GroupBox1: TGroupBox;
+    Edit1: TEdit;
+    Label1: TLabel;
+    cxButton1: TcxButton;
+    GroupBox2: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    JvImage1: TJvImage;
+    Label8: TLabel;
+    cxButton3: TcxButton;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    GroupBox4: TGroupBox;
+    Label13: TLabel;
+    JvDatePickerEdit1: TJvDatePickerEdit;
+    Label14: TLabel;
+    MyQuery1: TMyQuery;
+    DataSource1: TDataSource;
+    DBText1: TDBText;
+    DBText2: TDBText;
+    DBText3: TDBText;
+    DBText4: TDBText;
+    Label15: TLabel;
+    DBText5: TDBText;
+    Label16: TLabel;
+    DBText6: TDBText;
+    MyQuery2: TMyQuery;
+    DataSource2: TDataSource;
+    Label17: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Label12: TLabel;
+    DBText7: TDBText;
+    DataSource3: TDataSource;
+    MyQuery4: TMyQuery;
+    Label20: TLabel;
+    DBText9: TDBText;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1sum_hn: TcxGridDBColumn;
+    cxGrid1DBTableView1sum_an: TcxGridDBColumn;
+    cxGrid1DBTableView1sum_fname: TcxGridDBColumn;
+    cxGrid1DBTableView1sum_doctor: TcxGridDBColumn;
+    cxGrid1DBTableView1sum_admit: TcxGridDBColumn;
+    cxGrid1DBTableView1sum_dch: TcxGridDBColumn;
+    cxGrid1DBTableView1sum_rec_fname: TcxGridDBColumn;
+    cxGrid1DBTableView1sum_recdate: TcxGridDBColumn;
+    cxNavigator1: TcxNavigator;
+    cxButton2: TcxButton;
+    procedure cxButton1Click(Sender: TObject);
+    procedure cxButton2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure cxButton3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Summary: TSummary;
+
+implementation
+
+uses DataModule_Unit, login;
+
+{$R *.dfm}
+
+procedure TSummary.cxButton1Click(Sender: TObject);
+begin
+
+    if MyQuery4.Locate('sum_an',VarArrayOf([Edit1.text]),[]) then
+      begin
+
+
+            ShowMessage('มีAN  นี้อยู่ในระบบแล้ว');
+      end
+    else
+      begin
+
+
+          MyQuery1.Close;
+         MyQuery1.SQL.Text := 'Select distinct(ip.an),p.fname,p.lname,p.hn,p.cid,ip.regdate,ip.dchdate,doc.name from ipt ip ,patient p,doctor doc where p.hn = ip.hn and ip.dch_doctor = doc.code and ip.an = '+'"'+edit1.Text+'"';
+         MyQuery1.open;
+
+
+
+      end;
+
+
+
+
+
+
+end;
+
+procedure TSummary.cxButton2Click(Sender: TObject);
+begin
+close;
+
+end;
+
+procedure TSummary.cxButton3Click(Sender: TObject);
+begin
+
+if (DBText9.Caption <> '-')  or (DBText9.Caption <> 'null')   or (DBText9.Caption <> ' ')  or (DBText9.Caption <> '')   then
+  begin
+    MyQuery4.Close;
+    MyQuery4.Open;
+
+       if MyQuery4.Locate('sum_an',VarArrayOf([DBtext9.Caption]),[]) then
+         begin
+            ShowMessage('มี AN นี้อยู่ในระบบแล้ว');
+         end
+       else
+          begin
+              MyQuery4.close;
+              MyQuery4.Open;
+              MyQuery4.Append;
+              MyQuery4.FieldByName('sum_fname').AsString := DBText1.Caption;
+              MyQuery4.FieldByName('sum_lname').AsString := DBText2.Caption;
+              MyQuery4.FieldByName('sum_hn').AsString := DBText3.Caption;
+              MyQuery4.FieldByName('sum_rec_cid').AsString := DBText4.Caption;
+              MyQuery4.FieldByName('sum_doctor').AsString := DBText5.Caption;
+              MyQuery4.FieldByName('sum_dch').AsDateTime := StrToDate(DBText6.Caption);
+              MyQuery4.FieldByName('sum_admit').AsDateTime := StrToDate(DBText7.Caption);
+              MyQuery4.FieldByName('sum_an').AsString := DBText9.Caption;
+              MyQuery4.FieldByName('sum_state').AsString := '0';
+              MyQuery4.FieldByName('sum_rec_fname').AsString := label17.Caption;
+              MyQuery4.FieldByName('sum_recdate').AsDateTime := JvDatePickerEdit1.Date;
+
+
+              MyQuery4.FieldByName('sum_pamacy_acc').AsString := 'N';
+              MyQuery4.FieldByName('sum_pamacy_send').AsString := 'N';
+
+              MyQuery4.FieldByName('sum_doctor_acc').AsString := 'N';
+              MyQuery4.FieldByName('sum_doctor_send').AsString := 'N';
+
+              MyQuery4.FieldByName('sum_mrs_acc').AsString := 'N';
+              MyQuery4.FieldByName('sum_mrs_send').AsString := 'N';
+
+              MyQuery4.FieldByName('sum_pragun_acc').AsString := 'N';
+              MyQuery4.FieldByName('sum_pragun_send').AsString := 'N';
+
+              MyQuery4.FieldByName('sum_card_acc').AsString := 'N';
+              MyQuery4.FieldByName('sum_card_send').AsString := 'N';
+
+              MyQuery4.Post;
+              MyQuery4.close;
+              MyQuery4.Open;
+          end;
+
+  end ;
+if (DBText9.Caption = '-')  or (DBText9.Caption = 'null')   or (DBText9.Caption = ' ')  or (DBText9.Caption = '')   then
+  begin
+   ShowMessage('ตรวจสอบความถูกต้องของ AN');
+  end;
+
+end;
+
+procedure TSummary.FormShow(Sender: TObject);
+begin
+MyQuery4.Open;
+label17.Caption := fname;
+label18.Caption := lname;
+label19.Caption := pos;
+end;
+
+end.

@@ -1,0 +1,100 @@
+object Status: TStatus
+  Left = 0
+  Top = 0
+  Caption = 'Status'
+  ClientHeight = 600
+  ClientWidth = 800
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Visible = True
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 800
+    Height = 57
+    Align = alTop
+    Color = clHighlight
+    ParentBackground = False
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 57
+    Width = 209
+    Height = 543
+    Align = alLeft
+    Caption = 'Panel2'
+    TabOrder = 1
+    DesignSize = (
+      209
+      543)
+    object W7TaskItem3: TW7TaskItem
+      Left = 5
+      Top = 479
+      Width = 204
+      Height = 57
+      Version = '1.0.2.0'
+      ImageIndex = 2
+      Caption = #3648#3619#3639#3657#3629#3619#3633#3591
+      Description = 'CHONIC'
+      IconAlignment = wvaBottom
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = 1207808
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      DescriptionFont.Charset = DEFAULT_CHARSET
+      DescriptionFont.Color = 13395456
+      DescriptionFont.Height = -12
+      DescriptionFont.Name = 'Segoe UI'
+      DescriptionFont.Style = []
+      VerticalDelta = 7
+      HorizontalDelta = 7
+      Anchors = [akLeft, akBottom]
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object Panel3: TPanel
+    Left = 209
+    Top = 57
+    Width = 591
+    Height = 543
+    Align = alClient
+    Caption = 'Panel3'
+    TabOrder = 2
+    ExplicitLeft = 344
+    ExplicitTop = 280
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object JvPageControl1: TJvPageControl
+      Left = 1
+      Top = 1
+      Width = 589
+      Height = 541
+      ActivePage = TabSheet1
+      Align = alClient
+      TabOrder = 0
+      ExplicitLeft = 104
+      ExplicitTop = 152
+      ExplicitWidth = 289
+      ExplicitHeight = 193
+      object TabSheet1: TTabSheet
+        Caption = 'TabSheet1'
+        ExplicitWidth = 281
+        ExplicitHeight = 165
+      end
+    end
+  end
+end

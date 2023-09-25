@@ -1,0 +1,31 @@
+unit StatusU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, JvExComCtrls, JvComCtrls,
+  W7Classes, W7ListViewItems, Vcl.ExtCtrls;
+
+type
+  TStatus = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    W7TaskItem3: TW7TaskItem;
+    Panel3: TPanel;
+    JvPageControl1: TJvPageControl;
+    TabSheet1: TTabSheet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Status: TStatus;
+
+implementation
+
+{$R *.dfm}
+
+end.

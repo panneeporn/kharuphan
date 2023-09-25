@@ -1,0 +1,84 @@
+unit CreateLoginIIU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Data.DB, MemDS, DBAccess,
+  MyAccess;
+
+type
+  TCreateLoginII = class(TForm)
+    Button2: TButton;
+    MyQuery2: TMyQuery;
+    MyQuery1: TMyQuery;
+    DataSource1: TDataSource;
+    ComboBox1: TComboBox;
+    Edit5: TEdit;
+    Label5: TLabel;
+    Edit4: TEdit;
+    Label4: TLabel;
+    Edit3: TEdit;
+    Label3: TLabel;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Label6: TLabel;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  CreateLoginII: TCreateLoginII;
+
+implementation
+
+{$R *.dfm}
+
+procedure TCreateLoginII.Button1Click(Sender: TObject);
+begin
+MyQuery1.Close;
+MyQuery1.Open;
+MyQuery1.Append;
+//MyQuery1.FieldByName('u_cid').AsString := Edit1.Text;
+MyQuery1.FieldByName('u_user').AsString := Edit2.Text;
+MyQuery1.FieldByName('u_pass').AsString := Edit3.Text;
+MyQuery1.FieldByName('u_fname').AsString := Edit4.Text;
+MyQuery1.FieldByName('u_lname').AsString := Edit5.Text;
+MyQuery1.FieldByName('u_pos').AsString := ComboBox1.Text;
+MyQuery1.Post;
+//edit1.Clear;
+edit2.Clear;
+edit3.Clear;
+edit4.Clear;
+edit5.Clear;
+end;
+
+procedure TCreateLoginII.Button2Click(Sender: TObject);
+begin
+MyQuery2.Close;
+//MyQuery2.SQL.Text := 'select count(u_cid)as num  from login where u_cid = '+'"'+Edit1.Text+'"';
+MyQuery2.Open;
+
+if ((MyQuery2.FieldByName('num').Asinteger) = 0) then
+   begin
+      ShowMessage('OK INPUT');
+     // edit2.Text := edit1.Text
+
+   end;
+
+if ((MyQuery2.FieldByName('num').Asinteger) > 0) then
+   begin
+         ShowMessage('Not INPUT');
+         edit2.Clear;
+   end;
+
+end;
+
+end.

@@ -1,0 +1,571 @@
+object SendSubpile: TSendSubpile
+  Left = 0
+  Top = 0
+  Caption = #3626#3656#3591#3605#3656#3629#3586#3657#3629#3617#3641#3621#3648#3614#3639#3656#3629#3614#3636#3592#3634#3619#3603#3634
+  ClientHeight = 482
+  ClientWidth = 590
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 22
+    Top = 128
+    Width = 157
+    Height = 24
+    Caption = #3588#3623#3634#3617#3648#3627#3655#3609#3586#3629#3591#3594#3656#3634#3591#3595#3656#3629#3617#3610#3635#3619#3640#3591
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 22
+    Top = 80
+    Width = 74
+    Height = 24
+    Caption = #3617#3629#3610#3627#3617#3634#3618#3651#3627#3657
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 22
+    Top = 225
+    Width = 33
+    Height = 24
+    Caption = #3592#3633#3604#3595#3639#3657#3629
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 47
+    Top = 331
+    Width = 12
+    Height = 24
+    Caption = '3.'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 47
+    Top = 292
+    Width = 12
+    Height = 24
+    Caption = '2.'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 47
+    Top = 255
+    Width = 12
+    Height = 24
+    Caption = '1.'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 340
+    Top = 292
+    Width = 29
+    Height = 24
+    Caption = #3619#3634#3588#3634
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 340
+    Top = 255
+    Width = 29
+    Height = 24
+    Caption = #3619#3634#3588#3634
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 340
+    Top = 328
+    Width = 29
+    Height = 24
+    Caption = #3619#3634#3588#3634
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label11: TLabel
+    Left = 519
+    Top = 292
+    Width = 25
+    Height = 24
+    Caption = #3610#3634#3607
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label12: TLabel
+    Left = 519
+    Top = 255
+    Width = 25
+    Height = 24
+    Caption = #3610#3634#3607
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 519
+    Top = 328
+    Width = 25
+    Height = 24
+    Caption = #3610#3634#3607
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label14: TLabel
+    Left = 277
+    Top = 369
+    Width = 53
+    Height = 24
+    Caption = #3619#3623#3617#3619#3634#3588#3634
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label15: TLabel
+    Left = 519
+    Top = 369
+    Width = 25
+    Height = 24
+    Caption = #3610#3634#3607
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'TH SarabunPSK'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object W7ToolBar1: TW7ToolBar
+    Left = 0
+    Top = 0
+    Width = 590
+    Height = 56
+    Version = '1.0.2.0'
+    ShowTopBorder = False
+    ExplicitWidth = 627
+    object Label1: TLabel
+      Left = 71
+      Top = 2
+      Width = 350
+      Height = 51
+      Caption = #3586#3657#3629#3617#3641#3621#3585#3634#3619#3626#3656#3591#3605#3656#3629#3648#3614#3639#3656#3629#3614#3636#3592#3634#3619#3603#3634
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -45
+      Font.Name = 'TH SarabunPSK'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Image1: TImage
+      Left = 14
+      Top = 4
+      Width = 49
+      Height = 49
+      Picture.Data = {
+        0D546478536D617274496D61676589504E470D0A1A0A0000000D494844520000
+        00300000003008060000005702F987000000206348524D00007A250000808300
+        00F9FF000080E9000075300000EA6000003A980000176F925FC5460000000970
+        48597300000B1300000B1301009A9C18000007A6494441546843CD9A09505555
+        18C74FA9B86BEAB8A2A8B88016A961A94DE94CCB384D8D964D516E992111E6CE
+        7BA0A1E28A08B20882BBE96836355A532E95B9D4E8549A3695DB4C234A115A1A
+        819AA2A2A7FFFF702FBC7739EFF178EF499D99DFDC77EF3DCBFFBBE77CDF5940
+        04DBB23DA29B2D4B7407BCF2BE07AE3D6CCB4557DB0ADEB7044F017B575BF646
+        E439082EE35EC1DFE030DE6DC17D027816B4C3BDAAAF27EAE986DF5D5017EF7B
+        DB33545BAC3BD0B6523C684F132FC6CF12C3E3678B61169C44BA83155B0C0880
+        0163D1C82EDC5F01D204C214AEEE0D4AF16C1FEA8B8101AD6AC5007E755C03C0
+        1C3C2B005651DE5202D221B83DDBB9FF6E18C00AC134FCF6A7702720F82AAE49
+        E8817AFC587E3300DDDB057C8DDFDA86FD09444BF4C2193028D84F063C0DAE01
+        6D837703079F89F2D580C74195066A930EB695D17D6040447CBC1811FF8E78C1
+        824EB4C910A0ADB436410F48F4C0148A7D262E510C8D9B07782D47398A334AFC
+        93D68A3CA19B7D85EC1A9B255B4F4A930DA396C87B5F5F28C5B805EADA70C212
+        F5BC0BDE339FAEBC3B1040D013CB44B83D55F4734085471323D2B44581326B05
+        EEE811B742769E91A5C48AD71628239E48DE2C2372B6CBD1AB3E5657DE2310C8
+        7BC6C1A8B1F36587A9192897A3ADCF1196C1FC20836CB912063C1A6E4F117D61
+        888908B1652A428D2B0C39AAABC815213373658309494AF888AC0FE507874FCA
+        82A2CB52970A8BAFC88F8E9E5646357933193DB348F68CCF512275755BE9189B
+        5B046338819A1F5B60D2485784C15142ECCB6368ADAEB08E90F85C253C38365B
+        09AB493A925728072E582FC5A8446584AE7E2B9DA10D73C49AFEE8058721A4E2
+        BC02993891680B5B61A3016F2C96EDA7A4BBFCE2D5A59B6565F2A1B96BD5900A
+        F1C088CAE19413D8D9962388725A8349BA423A5851DBC9E9B27E64923C5578C9
+        9053355DBA724DBDCFBBF8B7F1A46A2AB97E43F943D3E8A5B2BBE7CEBDD5F45B
+        C7B05964BCAC1636245E9D2B93761C326438A713BF5F54FED01543AB0D0C6D0F
+        81E1F8D26BBF3A66E4704EDBBE3FAD8692AE2D576001D8AE277CD6143FDCF165
+        75F0EB074ECD94C5D74A0D0995E9C8D942596FFC22292266CB561397618865C8
+        761866745831DC2E53767F63E4744E34B0D95B29DAF67460C42472E4A86EC083
+        9DD60CEEE0988DDCB0C368BA32DD017DE7AC91627455C764AF358F4955D127FF
+        524979018714B369B7AAD7B14C359C05824BE486F871C3E145B5D079C7ADFD44
+        FEF8EB1FF22CC677D1D5EB4AC4BE53E7A41839575B86D0772872CFF13C95DF31
+        CDDE7E0086CFD39673057A2084B3EF63BA97EEE0C415382D530D914ED397CB50
+        CC054353DF9303E6AF976D30DBEA665AF640CB89A9B2317BE0AF624376659ABE
+        758F14633CEF0188E7EC1CC92114ABCBE08E6E765480D93610CE497F68F5F632
+        359935C718D685436530F28AE7E3E4C24F0F1A929DD3E0A44DB251547295B2AE
+        C087A723AFE510DAC81B5D267F405FE097172F27C8846DFB0DB9CE69EF89B3F8
+        FAF3D447D1D5A1839A31240F7202FB4C97C11F70A6E6228EB3F5AAFDFA105A7A
+        AB4CF94623E4ABC13CA00CC010CAA70185BA0CBE42BFA883D0C9A8B3F7E43943
+        6ED53478F146236AE56AEBA9862B0CA1372D0F7D86ABCCC6584ED3A17F2EF8D3
+        90EA9CCA6EDF9143166FC28438C7A355A90B9401A596873EC3C8C4317DE897DF
+        0CB9CEE93C56A58C58E2158A5763595B8F0728032E5A1EFA04C5301C46BDBBD3
+        90EB9C7EC8BF20DB217299AB501FC4937F68C03ECB439FE08EEB5E6C5A0E9CCE
+        372457A663F9E765032C00B9A9F164F5E90EC3890BB829D81CECC730DA6632B7
+        8DD9F242C955437679BA55765B862762E98C2FEFAB786218F02D0D98A5CBE02D
+        F7C5A4C87E580F5DBF79CB905E9E8EC3991BC1B13BC23F74E5BC643DCF23BDDA
+        C0BBA24974B2EC9FB8CE905D99B880AB8B556A907F0D88610F34C58F3B96175E
+        C3CD09E700EE1552B1743699B2E5731556E923BA725E12A636C6F871C0F2C26B
+        38BE8366208C0EB34BF15C6C25D81FF49AB9D2AB23151714AA1D193705B81963
+        79E9353CFBE93D6B25D637796A1E30597DE098F20F1EBFE8CAD504C38153788A
+        42F1A42EB86E66F08566D129B2CFEC35C6C8AF4CDC1707442E56939CAE5C4DE9
+        65CBE8CCD314874DFD8A445DC69AD202BBAEB084D5F26AE90D437A79622F300A
+        F9EAC4FCFA083CBB30012ADD5CCC99D447861A9DC8E9B89B06503C373261F6B4
+        509E58F32CCB7AB0955893832D1DCDA2976A8710CF8EEA612BDA699A770670C9
+        6168DB46ADE4010E211E29128C297545C67C6BE19A6086519E3E647E71B882D8
+        F7BF346669EF9C98E2B1F92A1B1097DC62605CB278386EA9780440B079B85BF1
+        67A4505F96165C1A532437E85C3698D4C124C610CBEDA8AE5C75D0006C218771
+        E8F0CB9B3838B17264332A8D722CFC7F001F3891FA3AD972414E05A6601D2381
+        B6B2FF808540A7D1AD012402E82AAC4D16009D3685F6A105BFCDD25EC0B949A7
+        A902ED432B187F83C019FCD635E25718E7712D062F01AD1E47B40FAD9447A8EC
+        7A885069B8BF05AA34EC2F101137205CB666646460C133B7681FEA6085FCD30E
+        8C09C27D3AF0CBDAC90462D7A18DDE2168837FA5BF9B0698CFDA031E4B7E07B4
+        A23CE027C071DE9D62D906FF73A5B60C707C87C92F7B14DEA5039EF49D003CED
+        30FFE5867F3C398577FB403626CAF128D3C7B12EEF0CC816FF02496DE081076A
+        B58B0000000049454E44AE426082}
+    end
+  end
+  object cxTextEdit1: TcxTextEdit
+    Left = 185
+    Top = 125
+    ParentFont = False
+    Style.Font.Charset = ANSI_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 1
+    Width = 359
+  end
+  object cxComboBox1: TcxComboBox
+    Left = 112
+    Top = 77
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 2
+    Text = 'cxComboBox1'
+    Width = 345
+  end
+  object cxTextEdit2: TcxTextEdit
+    Left = 80
+    Top = 252
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 3
+    Width = 249
+  end
+  object cxTextEdit3: TcxTextEdit
+    Left = 375
+    Top = 252
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 4
+    Width = 138
+  end
+  object cxTextEdit4: TcxTextEdit
+    Left = 80
+    Top = 290
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 5
+    Width = 249
+  end
+  object cxTextEdit5: TcxTextEdit
+    Left = 375
+    Top = 290
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 6
+    Width = 138
+  end
+  object cxTextEdit6: TcxTextEdit
+    Left = 80
+    Top = 328
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 7
+    Width = 249
+  end
+  object cxTextEdit7: TcxTextEdit
+    Left = 375
+    Top = 328
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 8
+    Width = 138
+  end
+  object cxTextEdit8: TcxTextEdit
+    Left = 336
+    Top = 366
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.IsFontAssigned = True
+    TabOrder = 9
+    Width = 177
+  end
+  object cxCheckBox1: TcxCheckBox
+    Left = 58
+    Top = 163
+    Caption = #3595#3656#3629#3617#3652#3604#3657
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 10
+    Width = 63
+  end
+  object cxCheckBox2: TcxCheckBox
+    Left = 58
+    Top = 195
+    Caption = #3595#3656#3629#3617#3652#3617#3656#3652#3604#3657
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 11
+    Width = 87
+  end
+  object cxCheckBox3: TcxCheckBox
+    Left = 151
+    Top = 163
+    Caption = #3652#3617#3656#3648#3610#3636#3585#3629#3632#3652#3627#3621#3656
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 12
+    Width = 121
+  end
+  object cxCheckBox4: TcxCheckBox
+    Left = 151
+    Top = 195
+    Caption = #3648#3610#3636#3585#3629#3632#3652#3627#3621#3656
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 13
+    Width = 121
+  end
+  object cxCheckBox5: TcxCheckBox
+    Left = 264
+    Top = 163
+    Caption = #3588#3621#3633#3591#3623#3633#3626#3604#3640
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 14
+    Width = 89
+  end
+  object cxCheckBox6: TcxCheckBox
+    Left = 264
+    Top = 195
+    Caption = #3626#3656#3591#3619#3657#3634#3609
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 15
+    Width = 89
+  end
+  object cxCheckBox7: TcxCheckBox
+    Left = 359
+    Top = 163
+    Caption = #3592#3633#3604#3595#3639#3657#3629
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 16
+    Width = 74
+  end
+  object cxCheckBox8: TcxCheckBox
+    Left = 359
+    Top = 197
+    Caption = #3626#3656#3591#3610#3619#3636#3625#3633#3607
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 17
+    Width = 90
+  end
+  object cxCheckBox9: TcxCheckBox
+    Left = 455
+    Top = 163
+    Caption = #3588#3621#3633#3591#3594#3656#3634#3591
+    ParentFont = False
+    Style.Font.Charset = DEFAULT_CHARSET
+    Style.Font.Color = clWindowText
+    Style.Font.Height = -21
+    Style.Font.Name = 'TH SarabunPSK'
+    Style.Font.Style = [fsBold]
+    Style.HotTrack = False
+    Style.IsFontAssigned = True
+    TabOrder = 18
+    Width = 121
+  end
+  object cxButton1: TcxButton
+    Left = 375
+    Top = 417
+    Width = 193
+    Height = 49
+    Caption = 'cxButton1'
+    TabOrder = 19
+    OnClick = cxButton1Click
+  end
+  object MyQuery1: TMyQuery
+    Connection = DataModule1.gxsoft
+    SQL.Strings = (
+      'select * from main_t')
+    Left = 312
+    Top = 424
+  end
+  object MyQuery2: TMyQuery
+    Connection = DataModule1.gxsoft
+    SQL.Strings = (
+      'select now()')
+    Left = 56
+    Top = 400
+  end
+end

@@ -1,0 +1,32 @@
+unit ChoiceS;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ImgList, cxGraphics, W7Bars,
+  W7Classes, W7ListViewItems;
+
+type
+  TChoiceSF = class(TForm)
+    W7TaskItem1: TW7TaskItem;
+    W7TaskItem2: TW7TaskItem;
+    W7TaskItem3: TW7TaskItem;
+    W7InformationBar1: TW7InformationBar;
+    cxImageList1: TcxImageList;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  ChoiceSF: TChoiceSF;
+
+implementation
+
+{$R *.dfm}
+
+uses TachnicianU;
+
+end.

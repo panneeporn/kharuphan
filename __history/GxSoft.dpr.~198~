@@ -1,0 +1,96 @@
+program GxSoft;
+
+uses
+  Vcl.Forms,
+  Windows,
+  Showform_U in 'Showform_U.pas' {Showform},
+  Login_U in 'Login_U.pas' {Loginform},
+  MainU in 'MainU.pas' {mainform},
+  datamodual in 'datamodual.pas' {DataModule1: TDataModule},
+  Write_opdcardU in 'Write_opdcardU.pas' {Form5},
+  ThaiDate in 'ThaiDate.pas',
+  claim_cal in 'claim_cal.pas' {Form6},
+  hrd in 'hrd.pas' {RegisHRD},
+  Summary2 in 'Summary2.pas' {RegisSum},
+  ManageU in 'ManageU.pas' {Mange},
+  Comment_DataU in 'Comment_DataU.pas' {Comment_Data},
+  Add_CommentU in 'Add_CommentU.pas' {Add_Comment},
+  AccessU in 'AccessU.pas' {Access},
+  PasswordU in 'PasswordU.pas' {password},
+  PersonalU in 'PersonalU.pas' {personal},
+  DatabasicU in 'DatabasicU.pas' {data_basic},
+  TpayU in 'TpayU.pas' {Pmonny},
+  ViewU in 'ViewU.pas' {View},
+  MemoRiskU in 'MemoRiskU.pas' {MemoRisk},
+  FilenameU in 'FilenameU.pas' {Filename},
+  Add_ManageCon_AddU in 'Add_ManageCon_AddU.pas' {Add_ManageCon_Add},
+  Config_riskU in 'Config_riskU.pas' {Config_risk},
+  HRDReplyU in 'HRDReplyU.pas' {Form2},
+  CreateLoginU in 'CreateLoginU.pas' {CreateLogin},
+  Personal_DetailU in 'Personal_DetailU.pas' {Personal_Detail},
+  AppointU in 'AppointU.pas' {Appoint},
+  Personal_InformationU in 'Personal_InformationU.pas' {Information},
+  CvdU in 'CvdU.pas' {CVD},
+  RentOPDU in 'MRS\RENT\RentOPDU.pas' {RentOPD},
+  RentSettingU in 'MRS\RENT\RentSettingU.pas' {rent_setup},
+  RentSetupU in 'MRS\RENT\RentSetupU.pas' {Form9},
+  RentU in 'MRS\RENT\RentU.pas' {Form4},
+  BankU in 'CREDITOR\BankU.pas' {bank},
+  CheckU in 'CREDITOR\CheckU.pas' {Check},
+  CompanyU in 'CREDITOR\CompanyU.pas' {Company},
+  DepartU in 'CREDITOR\DepartU.pas' {Department},
+  EditU in 'CREDITOR\EditU.pas' {Edit},
+  ItemsU in 'CREDITOR\ItemsU.pas' {Items},
+  MemoU in 'CREDITOR\MemoU.pas' {Memo},
+  MonnyU in 'CREDITOR\MonnyU.pas' {Tmonny},
+  ReportU in 'CREDITOR\ReportU.pas' {Report},
+  I_ReportServiceU in 'REPORT\I_ReportServiceU.pas' {I_ReportService},
+  I_ReportU in 'REPORT\I_ReportU.pas' {I_Report},
+  IReportU in 'REPORT\IReportU.pas' {IReport1},
+  R_pickdateU in 'REPORT\R_pickdateU.pas' {R_pickdate},
+  Report_itemU in 'REPORT\Report_itemU.pas' {Report_item},
+  Choice_Main in 'Choice_Main.pas' {Choice_Maintanance},
+  Change_DrugU in 'REPORT\Change_DrugU.pas' {Change_Drug},
+  monitor2 in 'monitor2.pas' {Accep_HRD},
+  PickTimeProcessU in 'PickTimeProcessU.pas' {PickTime},
+  StatusU in 'STATUS\StatusU.pas' {Status},
+  AccessPU in 'AccessPU.pas' {AccessMU},
+  StopU in 'StopU.pas' {Stop},
+  Score_techU in 'Score_techU.pas' {Score_tech},
+  CreateLoginIIU in 'CreateLoginIIU.pas' {CreateLoginII},
+  Main_t_summaryU in 'Main_t_summaryU.pas' {Maintanance_summary},
+  Date_MaintU in 'Maintanance\Date_MaintU.pas' {Date_Maint},
+  Garante_SuppilesU in 'Maintanance\Garante_SuppilesU.pas' {Garante_Suppiles},
+  GaranteU in 'Maintanance\GaranteU.pas' {Garante},
+  Maintanane_memoU in 'Maintanance\Maintanane_memoU.pas' {Maintanance_memo},
+  MaintananeCU in 'Maintanance\MaintananeCU.pas' {MaintananeC},
+  MaintananeTU in 'Maintanance\MaintananeTU.pas' {MaintananeT},
+  Manage_StatusU in 'Maintanance\Manage_StatusU.pas' {Mange_Status},
+  ManageCon_Add_ComU in 'Maintanance\ManageCon_Add_ComU.pas' {ManageCon_Add_C},
+  ManageConU in 'Maintanance\ManageConU.pas' {Manage_Con},
+  SendSubpileU in 'Maintanance\SendSubpileU.pas' {SendSubpile},
+  SentpartU in 'Maintanance\SentpartU.pas' {Sentpart},
+  Stat_SuppliesU in 'Maintanance\Stat_SuppliesU.pas' {Stat_Supplies},
+  StatU in 'Maintanance\StatU.pas' {Stat},
+  StatusTU in 'Maintanance\StatusTU.pas' {StatusT},
+  TachnicianU in 'Maintanance\TachnicianU.pas' {Tachnician},
+  monitor_hrdU in 'monitor_hrdU.pas' {Hrd_monitor};
+
+{$R *.res}
+ var tk:Cardinal;
+begin
+  tk:=GetTickCount;
+  Application.Initialize;
+  Showform:=TShowform.create(application);
+  Showform.show;
+ repeat
+    application.processmessages;
+
+  until (GetTickCount-tk)>3000;
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(Tmainform, mainform);
+  Application.CreateForm(THrd_monitor, Hrd_monitor);
+  Application.Run;
+end.

@@ -1,0 +1,106 @@
+unit ItemsU;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom,
+  dxSkinDarkSide, dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic,
+  dxSkinSharp, dxSkinSharpPlus, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinTheAsphaltWorld, dxSkinsDefaultPainters,
+  dxSkinValentine, dxSkinVS2010, dxSkinWhiteprint, dxSkinXmas2008Blue,
+  Vcl.Menus, cxStyles, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxNavigator, Data.DB, cxDBData, MemDS, DBAccess, MyAccess,
+  Vcl.DBCtrls, cxGridLevel, cxGridCustomTableView, cxGridTableView,
+  cxGridDBTableView, cxClasses, cxGridCustomView, cxGrid, Vcl.StdCtrls,
+  cxButtons, cxTextEdit, dxGDIPlusClasses, Vcl.ExtCtrls;
+
+type
+  TItems = class(TForm)
+    Panel1: TPanel;
+    Image1: TImage;
+    cxTextEdit1: TcxTextEdit;
+    cxButton1: TcxButton;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    cxGrid1Level1: TcxGridLevel;
+    DBNavigator1: TDBNavigator;
+    MyQuery1: TMyQuery;
+    MyQuery2: TMyQuery;
+    DataSource1: TDataSource;
+    cxGrid1DBTableView1i_group: TcxGridDBColumn;
+    procedure Image1Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure cxButton1Click(Sender: TObject);
+    procedure cxGrid1DBTableView1Column1GetDisplayText(
+      Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+      var AText: string);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Items: TItems;
+
+implementation
+
+{$R *.dfm}
+
+uses datamodual;
+
+
+
+procedure TItems.cxButton1Click(Sender: TObject);
+begin
+  MyQuery1.Close;
+  MyQuery1.Open;
+  MyQuery1.Append;
+  MyQuery1.FieldByName('i_group').AsString := cxTextEdit1.Text;
+  MyQuery1.Post;
+  MyQuery2.Refresh;
+end;
+
+procedure TItems.cxGrid1DBTableView1Column1GetDisplayText(
+  Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+  var AText: string);
+var
+  Row: Integer;
+
+begin
+     Row := Sender.GridView.DataController.GetRowIndexByRecordIndex(ARecord.RecordIndex, False);
+
+  AText := IntToStr(Row+1);
+
+
+end;
+
+procedure TItems.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+Release;
+end;
+
+procedure TItems.FormShow(Sender: TObject);
+begin
+MyQuery2.Close;
+MyQuery2.Open;
+end;
+
+procedure TItems.Image1Click(Sender: TObject);
+begin
+close;
+end;
+
+end.
